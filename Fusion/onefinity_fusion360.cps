@@ -148,7 +148,9 @@ properties = {
   useCircularInterpolation: {
     title: "Circular interpolation",
     description: "Output arcs as linear moves when set to No.",
-    type: "boolean"
+    type: "boolean",
+    value: true,
+    scope: "post"
   }
 };
 
@@ -1557,5 +1559,4 @@ function setProperty(property, value) {
 // <<<<< INCLUDED FROM ../common/buildbotics mill.cps
 
 properties.useM06.value = false; // output M06 with tool changes
-properties.useCircularInterpolation.value = false; // output circular moves as linear moves when set to false
 
