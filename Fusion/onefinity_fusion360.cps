@@ -5,12 +5,12 @@
   Onefinity post processor configuration.
 
   $Revision: 43242 a5a0aa6a6357c6456920970306b90da5de1f0892 $
-  $Date: 2021-04-30 14:00:00 $
+  $Date: 2021-04-30 15:24:00 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community v43242.3";
+description = "Onefinity Community v43242.4";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -639,6 +639,12 @@ function onSection() {
     writeBlock(
       sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
     );
+    if (getProperty("spindleDelay") > 0) {
+      writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+    }
+    if (getProperty("spindlePause")) {
+      writeBlock("M0 (MSG, Wait for Spindle)");
+    }
   }
 
   // wcs

@@ -1,6 +1,8 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## v43242.4 - Fix for the first occurence of spindleDelay or spindlePause
+ 
 ## v43242.3 - Add two new properties for spindle (i.e.spindleDelay, spindlePause )
 - new property spindleDelay:    title:"Spindle Delay",  type:"integer",         value=0,        description: "Time in seconds to delay after setting spindle speed."
 - new property spindlePause:    title: "Spindle Pause", type: "boolean",        value: false,   description: "Insert a pause (M0 message) to let user control waiting for a spindle."
