@@ -5,12 +5,12 @@
   Onefinity post processor configuration.
 
   $Revision: 43242 a5a0aa6a6357c6456920970306b90da5de1f0892 $
-  $Date: 2021-03-18 06:51:29 $
+  $Date: 2021-04-30 14:00:00 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity";
+description = "Onefinity Community v43242.3";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -151,6 +151,20 @@ properties = {
     type: "boolean",
     value: true,
     scope: "post"
+  },
+  spindleDelay: {
+    title: "Spindle Delay",
+    description: "Time in seconds to delay after setting spindle speed.",
+    type: "integer",
+    value: 0,
+    scope: "post"
+  },
+  spindlePause: {
+    title: "Spindle Pause",
+    description: "Insert a pause (M0 message) to let user control waiting for a spindle.",
+    type: "boolean",
+    value: false,
+    scope: "post"
   }
 };
 
@@ -178,6 +192,7 @@ var gFormat = createFormat({prefix:"G", decimals:1});
 var mFormat = createFormat({prefix:"M", decimals:1});
 var hFormat = createFormat({prefix:"H", decimals:1});
 var dFormat = createFormat({prefix:"D", decimals:1});
+var pFormat = createFormat({prefix:"P", decimals:0});
 
 var xyzFormat = createFormat({decimals:(unit == MM ? 3 : 4)});
 var abcFormat = createFormat({decimals:3, forceDecimal:true, scale:DEG});
@@ -196,6 +211,8 @@ var cOutput = createVariable({prefix:"C"}, abcFormat);
 var feedOutput = createVariable({prefix:"F"}, feedFormat);
 var sOutput = createVariable({prefix:"S", force:true}, rpmFormat);
 var dOutput = createVariable({}, dFormat);
+var gOutput = createVariable({}, gFormat);
+var pOutput = createVariable({}, pFormat);
 
 // circular output
 var iOutput = createReferenceVariable({prefix:"I", force:true}, xyzFormat);
@@ -615,6 +632,10 @@ function onSection() {
     if (spindleSpeed > 99999) {
       warning(localize("Spindle speed exceeds maximum value."));
     }
+    if (getProperty("spindleDelay") < 0) {
+      error(localize("Spindle delay may not be < 0"));
+      return;
+    }
     writeBlock(
       sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
     );
@@ -727,6 +748,13 @@ function onDwell(seconds) {
 
 function onSpindleSpeed(spindleSpeed) {
   writeBlock(sOutput.format(spindleSpeed));
+  if (getProperty("spindleDelay") > 0) {
+    writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+  }
+  if (getProperty("spindlePause")) {
+    //put in pause after spindle speed change
+    writeBlock("M0 (MSG, Wait for Spindle)");
+  }
 }
 
 function onCycle() {

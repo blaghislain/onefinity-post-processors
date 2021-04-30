@@ -1,7 +1,12 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## v43242.3 - Add two new properties for spindle (i.e.spindleDelay, spindlePause )
+- new property spindleDelay:    title:"Spindle Delay",  type:"integer",         value=0,        description: "Time in seconds to delay after setting spindle speed."
+- new property spindlePause:    title: "Spindle Pause", type: "boolean",        value: false,   description: "Insert a pause (M0 message) to let user control waiting for a spindle."
+
 ## v43242.2 - Update to enable 'useCircularInterpolation' by default
+
 ## v43242.1 - Update to retrofit autodesk/buildbotics changes from release 43008 to 43242
 - r43242	18/03/2021	Updated rotaryTableAxis method in all posts (#897)
 - r43194	18/02/2021	Updated all posts to use the new property definitions. You must have post engine version v4.5702 or higher to use this post. (#849)
