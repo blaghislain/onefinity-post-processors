@@ -17,7 +17,7 @@ vendorUrl = "https://www.onefinitycnc.com/";
 // >>>>> INCLUDED FROM ../common/buildbotics mill.cps
 
 if (!description) {
-  description = "Buildbotics controller";
+  description = "Onefinity controller";
 }
 
 legal = "Copyright (C) 2012-2021 by Autodesk, Inc.";
@@ -40,7 +40,7 @@ maximumCircularRadius = spatial(1000, MM);
 minimumCircularSweep = toRad(0.01);
 maximumCircularSweep = toRad(180);
 allowHelicalMoves = true;
-allowedCircularPlanes = 0; // disable all circular interpolation
+allowedCircularPlanes = 0; // disable all circular interpolation (enable automatically if useCircularInterpolation is true)
 
 // user-defined properties
 properties = {

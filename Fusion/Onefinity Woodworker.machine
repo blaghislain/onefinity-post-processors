@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<machine xmlns="http://www.hsmworks.com/xml/2009/machine">
+
+  <vendor>Kirbre Enterprises Inc</vendor>
+
+  <model>Woodworker</model>
+
+  <description>Onefinity Community v43242.4</description>
+
+  <control>Buildbotics</control>
+
+  <machining additive="no" inspection="no" jet="yes" milling="yes" turning="yes"/>
+
+  <dimensions depth="816mm" height="133mm" weight="0kg" width="816mm"/>
+
+  <capacities depth="816mm" height="0mm" weight="0kg" width="816mm"/>
+
+  <png128></png128>
+
+  <mtk></mtk>
+
+  <controllerConfigurations></controllerConfigurations>
+
+  <fusion>
+    <model></model>
+  </fusion>
+
+  <custom>
+    <data></data>
+    <name></name>
+    <softwareVersion></softwareVersion>
+    <network ip="" port="" protocol=""/>
+    <serial></serial>
+  </custom>
+
+  <coolant options=""/>
+
+  <multiAxis adjust="no" angle="10deg" cone="3deg" feedRateType="inverse" linearizationTolerance="0.040000000000000001mm" method="off" reconfigure="no" tolerance="0.040000000000000001mm"/>
+
+  <tooling maximumToolDiameter="0mm" maximumToolLength="0mm" maximumToolWeight="0kg" numberOfTools="100" toolChanger="no" toolPreload="no"/>
+
+  <machiningTime ratio="1" toolChangeTime="15s"/>
+
+  <capabilities maximumBlockProcessingSpeed="0" maximumFeedrate="0mm/min" workOffsets="100"/>
+
+  <simulation retractOnIndexing="yes" shortestAngularRotation="yes" wcs="0mm 0mm 0mm">
+    <machineAssembly></machineAssembly>
+  </simulation>
+
+  <post>
+    <postProcessor>user://onefinity_fusion360.cps</postProcessor>
+    <postProperties>
+      <Parameters/>
+    </postProperties>
+    <setupSheet></setupSheet>
+    <setupSheetProperties/>
+  </post>
+
+  <axis actuator="linear" coordinate="X" homePosition="0mm" id="X" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <axis actuator="linear" coordinate="Y" homePosition="0mm" id="Y" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <axis actuator="linear" coordinate="Z" homePosition="0mm" id="Z" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <spindle axis="0 0 1" maximumSpeed="24000rpm" minimumSpeed="0rpm">
+    <description></description>
+  </spindle>
+
+</machine>
