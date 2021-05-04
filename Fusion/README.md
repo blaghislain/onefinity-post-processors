@@ -1,7 +1,6 @@
 # <a name="Section">Onefinity Fusion 360 Post Processor & Machine</a>
 
-## <a name="Menu">Menu</a>
-| [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
+Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
 ## <a name="overview">Overview</a>
 The 'Fusion' folder is part of 'Onefinity-Post-Processors' GitHub Package.  
@@ -13,8 +12,11 @@ It contains these 'Onefinity Customized Components' to be use in 'Autodesk Fusio
   - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) than can be read by the CNC machine's controller.
 - [OneFinity Custom Machine Configuration File (both woodworker and machinist definition available)](#onefinity-custom-machine-library-definition)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
+
+Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
 # <a name="overview">Components</a>
+Menu | [Overview](#overview) | **Components(** [**Onefinity Custom Post Processor**](#onefinity-custom-post-processor) | [**Onefinity Custom Machine Library Definition**](#onefinity-custom-machine-library-definition) ) | [Procedures](#procedures) |
 
 ## <a name="onefinity-custom-post-library-definition">Onefinity Custom Post Processor</a>
 
@@ -24,7 +26,7 @@ It's a language definition file used to converts toolpaths created in a CAM soft
 
 This is a customized version (see 'Features' section) of the generic post processor available from [Autodesk](https://cam.autodesk.com/hsmposts?p=onefinity).
 
-** Information on how to proceed to download and install can be found in the [Procedures](#procedures) section.
+** Information on how to proceed to [Download](#download) and [Install Post](#install-fusion-360-post-processor) can be found in the [Procedures](#procedures) section.
 
 ### Features:
 
@@ -43,7 +45,7 @@ This is a customized version (see 'Features' section) of the generic post proces
     - Smaller file size.  
 - Retrofited all the Autodesk/Buildbotics changes (required by inheritage) from release 43008 to 43242.
 
-| [Overview](#overview) | [Components](#components) | [Download](#download) | [Install Post](#install-fusion-360-post-processor) | 
+Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 
 ___________________
 ## <a name="onefinity-custom-machine-library-definition">Onefinity Custom Machine Library Definition</a>
 
@@ -59,18 +61,19 @@ ___________________
       - **it is tied to a specific post processor and must generaly be update for a new revision of the 'Post Processor'**.
       - **There are a number of important branches in the tree of the Machine Configuration left panel. Go can go through each and edit (ajust or fill) in as much information as you can about your machine**.
 
-** Information on how to proceed to download and install can be found in the [Procedures](#procedures) section.
+** Information on how to proceed to [Download](#a-download-onefinity-post-processor-main-file) and [Install Machine](#c-install-onefinity-machine) can be found in the [Procedures](#procedures) section.
 
-| [Overview](#overview) | [Components](#components) | [Download](#download) | [Install Machine](#install-fusion-360-machine) | 
+Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 
 ___________________
 # <a name="procedures">Procedures</a>
+| [Overview](#overview) | [Components](#components) | **Procedures**( **[Download](#a-download-onefinity-post-processor-main-file) | [Install Post](#b-install-fusion-360-post-processor) | [Install Machine](#c-install-onefinity-machine)** ) |
 
 ## <a name="download">A. Download Onefinity Post Processor main file</a>
 
  - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](https://github.com/OneFinityCNC/onefinity-post-processors/archive/refs/heads/main.zip) and **Save** it on your system.
 - [ ] 2. Navigate to the folder and **Extract** the post processor file in a folder on your system.  There is a subfolder call 'Fusion' containing all the files needed.
 
-| [Menu](#menu) | [Install Post](#post) | [Install Machine](#machine) |
+| [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
 
 ## <a name="install-fusion-360-post-processor">B. Install Fusion 360 Post Processor</a>
@@ -98,7 +101,7 @@ __________________________
 
 ![post_select](./images/installing_post_processor_05.png)
 
-| [Menu](#menu) | [Install Post](#install_post) | [Install Machine](#install_machine) |  
+| [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 
 __________________________
 ## <a name="install-fusion-360-machine">C. Install Onefinity Machine</a>
 
@@ -134,4 +137,4 @@ note: Change apply to all machine definition.
 - [ ] 12. Navigate to the folder where you store your GCODE 
 - [ ] 13. Click the 'Select Folder' button to confirm your choice.
 
-| [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |  
+| [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
