@@ -125,7 +125,7 @@ __________________________
 - [ ] 8b. To install the 'Machinist' definition, Select the file 'onefinity_machinist.machine'
 - [ ] 9. Click the 'Open' button
 
-**You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:/\@GCODE)**
+**You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:\\@GCODE)**
 
 note: Change apply to all machine definition.
 
