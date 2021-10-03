@@ -10,7 +10,7 @@ It contains these 'Onefinity Customized Components' to be use in 'Autodesk Fusio
 ** click on the desired component to get to the proper section
 - [Onefinity Custom Post Processor](#onefinity-custom-post-library-definition).
   - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) than can be read by the CNC machine's controller.
-- [OneFinity Custom Machine Configuration File (both woodworker and machinist definition available)](#onefinity-custom-machine-library-definition)
+- [OneFinity Custom Machine Configuration File (distinct definition file available for woodworker, machinist and journeyman)](#onefinity-custom-machine-library-definition)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
 
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
@@ -33,7 +33,7 @@ This is a customized version (see 'Features' section) of the generic post proces
 -  Added two new customs properties for spindle to let user add a delay and/or a pause (M0 message) when spindle speed change.
     | Property | Descrition | Type | default value |
     |----------|------------|------|---------------|
-    | Spindle Delay | Insert a delay (gcode S4 Px) if time <> 0. Value (x) represent time in seconds to delay after setting spindle speed.| integer | 0| 
+    | Spindle Delay | Insert a delay (gcode G4 Px) if time <> 0. Value (x) represent time in seconds to delay after setting spindle speed.| integer | 0| 
     | Spindle Pause|Insert a pause (gcode M0 message) to let user control waiting for a spindle|boolean|false|
 - Custom update to enable 'useCircularInterpolation'.
     | Property | Descrition | Type | new value |
@@ -70,7 +70,7 @@ ___________________
 
 ## <a name="download">A. Download Onefinity Post Processor main file</a>
 
- - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](main.zip) and **Save** it on your system.
+ - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](.\main.zip) and **Save** it on your system.
 - [ ] 2. Navigate to the folder and **Extract** the post processor file in a folder on your system.  There is a subfolder call 'Fusion' containing all the files needed.
 
 | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
