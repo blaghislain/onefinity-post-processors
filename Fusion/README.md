@@ -70,7 +70,7 @@ ___________________
 
 ## <a name="download">A. Download Onefinity Post Processor main file</a>
 
- - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](/OneFinityCNC/onefinity-post-processors/archive/refs/heads/main.zip) and **Save** it on your system.
+ - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](https://github.com/OneFinityCNC/onefinity-post-processors/archive/refs/heads/main.zip) and **Save** it on your system.
 - [ ] 2. Navigate to the folder and **Extract** the post processor file in a folder on your system.  There is a subfolder call 'Fusion' containing all the files needed.
 
 | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
