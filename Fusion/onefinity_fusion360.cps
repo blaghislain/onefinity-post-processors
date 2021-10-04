@@ -1,16 +1,17 @@
+
 /**
   Copyright (C) 2012-2021 by Autodesk, Inc.
   All rights reserved.
 
   Onefinity post processor configuration.
 
-  $Revision: 43242 a5a0aa6a6357c6456920970306b90da5de1f0892 $
-  $Date: 2021-04-30 15:24:00 $
+  $Revision: 43242.5 a5a0aa6a6357c6456920970306b90da5de1f0892 $
+  $Date: 2021-10-04 10:36:00 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community v43242.4";
+description = "Onefinity Community v43242.5";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -640,7 +641,7 @@ function onSection() {
       sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
     );
     if (getProperty("spindleDelay") > 0) {
-      writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+      writeBlock(gOutput.format(4), pFormat.format(getProperty("spindleDelay")));
     }
     if (getProperty("spindlePause")) {
       writeBlock("M0 (MSG, Wait for Spindle)");
@@ -755,7 +756,7 @@ function onDwell(seconds) {
 function onSpindleSpeed(spindleSpeed) {
   writeBlock(sOutput.format(spindleSpeed));
   if (getProperty("spindleDelay") > 0) {
-    writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+    writeBlock("G4 " + pFormat.format(getProperty("spindleDelay")));
   }
   if (getProperty("spindlePause")) {
     //put in pause after spindle speed change
