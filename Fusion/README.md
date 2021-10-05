@@ -68,9 +68,9 @@ ___________________
 # <a name="procedures">Procedures</a>
 | [Overview](#overview) | [Components](#components) | **Procedures**( **[Download](#a-download-onefinity-post-processor-main-file) | [Install Post](#b-install-fusion-360-post-processor) | [Install Machine](#c-install-onefinity-machine)** ) |
 
-## <a name="download">A. Download Onefinity Post Processor main file</a>
+## <a name="download">A. Download Onefinity Post Processor latest release file</a>
 
- - [ ] 1. Download the file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](main.zip) and **Save** it on your system.
+ - [ ] 1. Download the latest release file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](/archive/refs/tags/onefinity-post-processors_v1.0.1.zip) and **Save** it on your system.
 - [ ] 2. Navigate to the folder and **Extract** the post processor file in a folder on your system.  There is a subfolder call 'Fusion' containing all the files needed.
 
 | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
