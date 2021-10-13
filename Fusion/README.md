@@ -130,6 +130,7 @@ __________________________
 - [ ] 7. Navigate to the folder where you extrated the zip file in step A.2) 
 - [ ] 8a. To install the 'Woodworker' definition, Select the file 'onefinity_woodworker.machine'
 - [ ] 8b. To install the 'Machinist' definition, Select the file 'onefinity_machinist.machine'
+- [ ] 8c. To install the 'Journeyman' definition, Select the file 'onefinity_journeyman.machine'
 - [ ] 9. Click the 'Open' button
 
 **You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:\\@GCODE)**
