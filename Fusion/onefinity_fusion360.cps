@@ -4,20 +4,20 @@
 
   Onefinity post processor configuration.
 
-  $Revision: 43242 a5a0aa6a6357c6456920970306b90da5de1f0892 $
-  $Date: 2021-04-30 15:24:00 $
+  $Revision: 43409 bf758766be774afd173432ca3bc289a6f95e4e36 $
+  $Date: 2021-09-01 23:19:19 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community v43242.4";
+description = "Onefinity Community Edition v2021.10.05.1";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
 // >>>>> INCLUDED FROM ../common/buildbotics mill.cps
 
 if (!description) {
-  description = "Onefinity controller";
+  description = "Onefinity Controller";
 }
 
 legal = "Copyright (C) 2012-2021 by Autodesk, Inc.";
@@ -108,7 +108,9 @@ properties = {
   useM06: {
     title: "Output M6",
     description: "Disable to disallow the output of M6 on tool changes.",
-    type: "boolean"
+    type: "boolean",
+    value: true,
+    scope: "post"
   },
   safePositionMethod: {
     title: "Safe Retracts",
@@ -424,6 +426,32 @@ function forceWorkPlane() {
   currentWorkPlaneABC = undefined;
 }
 
+function positionABC(abc, force) {
+  if (typeof unwindABC == "function") {
+    unwindABC(abc, false);
+  }
+  if (force) {
+    forceABC();
+  }
+  var a = aOutput.format(abc.x);
+  var b = bOutput.format(abc.y);
+  var c = cOutput.format(abc.z);
+  if (a || b || c) {
+    if (!retracted) {
+      if (typeof moveToSafeRetractPosition == "function") {
+        moveToSafeRetractPosition();
+      } else {
+        writeRetract(Z);
+      }
+    }
+    onCommand(COMMAND_UNLOCK_MULTI_AXIS);
+    gMotionModal.reset();
+    writeBlock(gMotionModal.format(0), a, b, c);
+    currentMachineABC = new Vector(abc);
+    setCurrentABC(abc); // required for machine simulation
+  }
+}
+
 function setWorkPlane(abc) {
   if (!machineConfiguration.isMultiAxisConfiguration()) {
     return; // ignore
@@ -436,21 +464,8 @@ function setWorkPlane(abc) {
     return; // no change
   }
 
-  onCommand(COMMAND_UNLOCK_MULTI_AXIS);
-
-  if (!retracted) {
-    writeRetract(Z);
-  }
-  
-  writeBlock(
-    gMotionModal.format(0),
-    conditional(machineConfiguration.isMachineCoordinate(0), "A" + abcFormat.format(abc.x)),
-    conditional(machineConfiguration.isMachineCoordinate(1), "B" + abcFormat.format(abc.y)),
-    conditional(machineConfiguration.isMachineCoordinate(2), "C" + abcFormat.format(abc.z))
-  );
-  
+  positionABC(abc, true);
   onCommand(COMMAND_LOCK_MULTI_AXIS);
-
   currentWorkPlaneABC = abc;
 }
 
@@ -533,7 +548,6 @@ function onSection() {
     currentSection.getForceToolChange && currentSection.getForceToolChange() ||
     (tool.number != getPreviousSection().getTool().number);
   
-  retracted = false; // specifies that the tool has been retracted to the safe plane
   var newWorkOffset = isFirstSection() ||
     (getPreviousSection().workOffset != currentSection.workOffset); // work offset changes
   var newWorkPlane = isFirstSection() ||
@@ -640,7 +654,7 @@ function onSection() {
       sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
     );
     if (getProperty("spindleDelay") > 0) {
-      writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+      writeBlock(gOutput.format(4), pFormat.format(getProperty("spindleDelay")));
     }
     if (getProperty("spindlePause")) {
       writeBlock("M0 (MSG, Wait for Spindle)");
@@ -675,16 +689,18 @@ function onSection() {
   forceXYZ();
 
   if (machineConfiguration.isMultiAxisConfiguration()) { // use 5-axis indexing for multi-axis mode
-    // set working plane after datum shift
-
     var abc = new Vector(0, 0, 0);
     if (currentSection.isMultiAxis()) {
       forceWorkPlane();
       cancelTransformation();
+      if (currentSection.isOptimizedForMachine()) {
+        abc = currentSection.getInitialToolAxisABC();
+        positionABC(abc, true);
+      }
     } else {
       abc = getWorkPlaneMachineABC(currentSection.workPlane);
-    }
     setWorkPlane(abc);
+    }
   } else { // pure 3D
     var remaining = currentSection.workPlane;
     if (!isSameDirection(remaining.forward, new Vector(0, 0, 1))) {
@@ -755,7 +771,7 @@ function onDwell(seconds) {
 function onSpindleSpeed(spindleSpeed) {
   writeBlock(sOutput.format(spindleSpeed));
   if (getProperty("spindleDelay") > 0) {
-    writeBlock(sOutput.format(4), pFormat.format(getProperty("spindleDelay")));
+    writeBlock("G4 " + pFormat.format(getProperty("spindleDelay")));
   }
   if (getProperty("spindlePause")) {
     //put in pause after spindle speed change
@@ -1593,4 +1609,5 @@ function setProperty(property, value) {
 // <<<<< INCLUDED FROM ../common/buildbotics mill.cps
 
 properties.useM06.value = false; // output M06 with tool changes
+properties.useCircularInterpolation.value = true; // output circular moves as linear moves when set to false
 

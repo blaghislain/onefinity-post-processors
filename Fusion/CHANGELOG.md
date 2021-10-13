@@ -1,6 +1,19 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## 2021-10-05
+- Onefinity Post Processor package
+  - Added file [Onefinity Journeyman.machine](Onefinity%20Journeyman.machine)
+  - Updated files [README.md](README.md) and [CHANGELOG.md](CHANGELOG.md) to match autodesk information because they refactor (i.e. new reference number ajusted but file content remain the same) internal revision number of anterior post processor published. 
+  - Updated [README.md](README.md) to use relative link in order to work for main branch and also pull request branch.
+- Onefinity Fusion 360 Post Processor:
+  - Fix post processor file to use 'gcode G4 Px' instead of 'gcode S4 Px' for spindle delay.
+- Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (required by inhertage and fusion core component).
+    | Date       | Descrition                                        | CRC                                      | 
+    |------------|---------------------------------------------------|------------------------------------------|
+    | 2021/09/01 | Added initial ABC positioning for simultaneous toolpath (#1109) | bf758766be774afd173432ca3bc289a6f95e4e36 |
+    | 2021/06/28 | Changed ABC positioning movements to use the correct formats in generic posts. | 87e091300b673cf720a5d07cfae42c42846642d9 |
+   
 ## 2021-05-03
 - Onefinity Post Processor main file
   - Updated file [onefinity_fusion360.cps](onefinity_fusion360.cps)
@@ -10,15 +23,13 @@ Onefinity Fusion 360 Post Processor Changelog
   - Added file [Onefinity Machinist.machine](Onefinity%20Machinist.machine)
 
 - Onefinity Fusion 360 Post Processor:
-  - v43242.4 - Fix for the first occurence of spindle speed change.  Also ajusted post description and comment.
- 
-  - v43242.3 - Added two new customs properties for spindle to let user add a delay and/or a pause when spindle speed change.
+  - Fix for the first occurence of spindle speed change.  Also ajusted post description and comment.
+  - Added two new customs properties for spindle to let user add a delay and/or a pause when spindle speed change.
       | Property | Descrition | Type | default value |
       |----------|------------|------|---------------|
-      | Spindle Delay | Insert a delay (S4 Px) if time <> 0. Time in seconds to delay after setting spindle speed.| integer | 0| 
+      | Spindle Delay | Insert a delay (G4 Px) if time <> 0. Time in seconds to delay after setting spindle speed.| integer | 0| 
       | Spindle Pause|Insert a pause (M0 message) to let user control waiting for a spindle|boolean|false|
-
-  - v43242.2 - Custom update to enable 'useCircularInterpolation'.
+  - Custom update to enable 'useCircularInterpolation'.
       | Property | Descrition | Type | new value |
       |----------|------------|------|-------------------|
       | Circular Interpolation | Control if post processor will generate 'circular arc movement' (i.e. G02 or G03) instead of a lot of 'straight line linear movement' (i.e. G01 XYZ ) for corner, arc and circle toolpath.| boolean|true|
@@ -27,18 +38,16 @@ Onefinity Fusion 360 Post Processor Changelog
       - Smaller file size.  
       - Less time require to cut toolpath.  
       - And the most important, less effort for stepper motor (torque, acceleration, etc.)
-
-  - v43242.1 - Retrofited all the Autodesk/Buildbotics changes (required by inhertage) from release 43008 to 43242.
-      | Release | Date       | Descrition | 
-      |---------|------------|------------|
-    | r43242 | 18/03/2021	| Updated rotaryTabeAxis method in all posts (#897) |
-    | r43194| 18/02/2021 | Updated all posts to use the new property definitions. You must have post engine version v4.5702 or higher to use this post. (#849)| 
-    | r43135 | 11/01/2021 | Add option to convert arcs to linear moves. (#782)|
-    | r43056 | 17/11/2020 | Set 'Preload tool' default value to 'false'. (#697)|
-    | r43037 | 11/11/2020 | Added property option to use clearance height instead of G28/G53. (#698)|
-    | r43036 | 11/11/2020 | Add post processor for Onefinity. (#688) |
-
-  - v43008.1 - Onefinity Forum first release 
-      | Release | Date       | Descrition | 
-      |---------|------------|------------|
-      | r43008 | 17/11/2020 | Changelog not maintained in previous versions.  See git commit log.|
+  - Retrofited all the Autodesk/Buildbotics changes to date 2021-03-18 (required by inhertage and fusion core component).
+    | Date       | Descrition                                        | CRC                                      | 
+    |------------|---------------------------------------------------|------------------------------------------|
+    | 2021/03/18 | Updated rotaryTabeAxis method in all posts (#897) | a5a0aa6a6357c6456920970306b90da5de1f0892 |
+    | 2021/02/18 | Updated all posts to use the new property definitions. You must have post engine version v4.5702 or higher to use this post. (#849)| 08c79bb5b30997ccb5fb33ab8e7c8c26981be334 | 
+    | 2021/01/11 | Add option to convert arcs to linear moves. (#782)| 0f84633735c21b47795433c69db08ab5c1d6c0ae |
+    | 2020/11/17 | Set 'Preload tool' default value to 'false'. (#697)| 31731a89b929cfd1a62f827c2b8ebf233f944dc9|
+    | 2020/11/11 | Added property option to use clearance height instead of G28/G53. (#698)| 7a1bf224aaeb03276140cf7c51b0548f1afd8eaf |
+    | 2020/11/11 | Add post processor for Onefinity. (#688) | ae894a72c7d1449c8a6de77bdc80949e6ea3f077 |
+  - Onefinity Forum first release 
+    | Date       | Descrition                                        | CRC                                      | 
+    |------------|---------------------------------------------------|------------------------------------------|
+    | 2020/11/17 | Changelog not maintained in previous versions.  See git commit log.    | 31731a89b929cfd1a62f827c2b8ebf233f944dc9 |
