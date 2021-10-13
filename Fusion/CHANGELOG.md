@@ -2,14 +2,12 @@ Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
 ## 2021-10-05
-- Updated README.md to use relative link in order to work for main branch and also pull request branch.
-- Updated README.md to autodesk information because autodesk refactor release number of anterior post processor (i.e. new revision number, same content). 
-- Onefinity Post Processor main file
+- Onefinity Post Processor package
   - Added file [Onefinity Journeyman.machine](Onefinity%20Journeyman.machine)
-  - Updated file [README.md](README.md) to match autodesk new revision number (revision number for old post processor was refactor but file content remain de same)  
-  - Updated file [CHANGELOG.md](CHANGELOG.md) to match autodesk new revision number (revision number for old post processor was refactor but file content remain de same)  
+  - Updated files [README.md](README.md) and [CHANGELOG.md](CHANGELOG.md) to match autodesk information because they refactor (i.e. new reference number ajusted but file content remain the same) internal revision number of anterior post processor published. 
+  - Updated [README.md](README.md) to use relative link in order to work for main branch and also pull request branch.
 - Onefinity Fusion 360 Post Processor:
-  - v43242.5 - Fix post processor file to use 'gcode G4 Px' instead of 'gcode S4 Px' for spindle delay.
+  - Fix post processor file to use 'gcode G4 Px' instead of 'gcode S4 Px' for spindle delay.
 - Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (required by inhertage and fusion core component).
     | Date       | Descrition                                        | CRC                                      | 
     |------------|---------------------------------------------------|------------------------------------------|

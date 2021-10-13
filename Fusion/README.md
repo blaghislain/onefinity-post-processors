@@ -3,13 +3,13 @@
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
 ## <a name="overview">Overview</a>
-The 'Fusion' folder is part of 'Onefinity-Post-Processors' GitHub Package.  
+The 'Fusion' folder is part of 'onefinity-community-post-processors' GitHub Package.  
 
-It contains these 'Onefinity Customized Components' to be use in 'Autodesk Fusion 360':
+It contain these 'Community Customized Components' to be use in 'Autodesk Fusion 360':
 
 ** click on the desired component to get to the proper section
 - [Onefinity Custom Post Processor](#onefinity-custom-post-library-definition).
-  - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) than can be read by the CNC machine's controller.
+  - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) that can be read by the CNC machine's controller.
 - [OneFinity Custom Machine Configuration File (distinct definition file available for woodworker, machinist and journeyman)](#onefinity-custom-machine-library-definition)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
 
@@ -39,11 +39,12 @@ This is a customized version (see 'Features' section) of the generic post proces
     | Property | Descrition | Type | new value |
     |----------|------------|------|-------------------|
     | Circular Interpolation | Control if post processor will generate 'circular arc movement' (i.e. G02 or G03) instead of a lot of 'straight line linear movement' (i.e. G01 XYZ ) for corner, arc and circle toolpath.| boolean|true|
+
     Benefit if enable: 
     - Less effort for stepper motor (torque, acceleration, etc.)
     - Smoother toolpath that require less time require to cut.  
-    - Smaller file size.  
-- Retrofited all the Autodesk/Buildbotics changes (required by inheritage) from release 43008 to 43242.
+    - Smaller file size. 
+- Retrofited all the Autodesk/Buildbotics changes (required by product inheritage and core component compatibility) from release 2020-11-11 to 2021-09-01.
 
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 
 ___________________
@@ -51,7 +52,7 @@ ___________________
 
 ** As explained in the overview, the machine configuration is an optional component.  
  
- Two diffents starter configuration files are provided ('**Onefinity Woodworker**' and '**Onefinity Machinist**')
+ Three differents starter configuration files are provided ('**Onefinity Woodworker**', '**Onefinity Machinist**' and '**Onefinity Journeyman**')
 
 **Machine Configuration** files are use to define available machines and resources. Each configuration file:  
   - can help automate the settings in your Fusion 360 Job Setup.
@@ -68,10 +69,16 @@ ___________________
 # <a name="procedures">Procedures</a>
 | [Overview](#overview) | [Components](#components) | **Procedures**( **[Download](#a-download-onefinity-post-processor-main-file) | [Install Post](#b-install-fusion-360-post-processor) | [Install Machine](#c-install-onefinity-machine)** ) |
 
-## <a name="download">A. Download Onefinity Post Processor latest release file</a>
+## <a name="download">A. Download both 'Onefinity Post Processor file' and desired 'Onefinity Machine Configuration file' </a>
 
- - [ ] 1. Download the latest release file ('onefinity-post-processors-main.zip') using the [GitHub OnefinityCnc Repository](/archive/refs/tags/onefinity-post-processors_v1.0.1.zip) and **Save** it on your system.
-- [ ] 2. Navigate to the folder and **Extract** the post processor file in a folder on your system.  There is a subfolder call 'Fusion' containing all the files needed.
+ - [ ] 1. **Download** the post processor file from the GitHub Repository and **Save** it on your system.
+    - [onefinity_fusion360.cps](./onefinity_fusion360.cps)
+ - [ ] 2. **Download** one of the machine configuration files  from the GitHub Repository and **Save** it on your system:
+   - [Onefinity Woodworker.machine](./Onefinity%20Woodworker.machine) or
+   - [Onefinity Machinist.machine](./Onefinity%20Machinist.machine) or
+   - [Onefinity Journeyman.machine](./Onefinity%20Journeyman.machine)
+
+Note:  You can download all files in once usign this [link](../../../archive/refs/heads/main.zip):  
 
 | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
@@ -125,7 +132,7 @@ __________________________
 - [ ] 8b. To install the 'Machinist' definition, Select the file 'onefinity_machinist.machine'
 - [ ] 9. Click the 'Open' button
 
-**You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:\@GCODE)**
+**You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:\\@GCODE)**
 
 note: Change apply to all machine definition.
 
