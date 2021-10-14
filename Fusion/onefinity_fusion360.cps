@@ -4,13 +4,13 @@
 
   Onefinity post processor configuration.
 
-  $Revision: 43409 bf758766be774afd173432ca3bc289a6f95e4e36 $
-  $Date: 2021-09-01 23:19:19 $
+  $Revision: 43459 e9b6842f3e6234c1aaf343320b80f62d2d29ad08 $
+  $Date: 2021-10-12 12:45:30 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community Edition v2021.10.05.1";
+description = "Onefinity Community Edition v2021.10.14.1";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -178,6 +178,7 @@ var singleLineCoolant = false; // specifies to output multiple coolant codes in 
 // samples:
 // {id: COOLANT_THROUGH_TOOL, on: 88, off: 89}
 // {id: COOLANT_THROUGH_TOOL, on: [8, 88], off: [9, 89]}
+// {id: COOLANT_THROUGH_TOOL, on: "M88 P3 (myComment)", off: "M89"}
 var coolants = [
   {id: COOLANT_FLOOD, on: 8},
   {id: COOLANT_MIST, on: 7},
@@ -1394,14 +1395,14 @@ function setCoolant(coolant) {
 }
 
 function getCoolantCodes(coolant) {
-  if (getProperty("useCoolant")) {
+  var multipleCoolantBlocks = new Array(); // create a formatted array to be passed into the outputted line
+  if ((getProperty("useCoolant") != undefined) && !getProperty("useCoolant")) {
     return undefined;
   }
-  var multipleCoolantBlocks = new Array(); // create a formatted array to be passed into the outputted line
   if (!coolants) {
     error(localize("Coolants have not been defined."));
   }
-  if (isProbeOperation()) { // avoid coolant output for probing
+  if (tool.type == TOOL_PROBE) { // avoid coolant output for probing
     coolant = COOLANT_OFF;
   }
   if (coolant == currentCoolantMode) {
@@ -1410,10 +1411,10 @@ function getCoolantCodes(coolant) {
   if ((coolant != COOLANT_OFF) && (currentCoolantMode != COOLANT_OFF) && (coolantOff != undefined)) {
     if (Array.isArray(coolantOff)) {
       for (var i in coolantOff) {
-        multipleCoolantBlocks.push(mFormat.format(coolantOff[i]));
+        multipleCoolantBlocks.push(coolantOff[i]);
       }
     } else {
-      multipleCoolantBlocks.push(mFormat.format(coolantOff));
+      multipleCoolantBlocks.push(coolantOff);
     }
   }
 
@@ -1448,12 +1449,17 @@ function getCoolantCodes(coolant) {
   } else {
     if (Array.isArray(m)) {
       for (var i in m) {
-        multipleCoolantBlocks.push(mFormat.format(m[i]));
+        multipleCoolantBlocks.push(m[i]);
       }
     } else {
-      multipleCoolantBlocks.push(mFormat.format(m));
+      multipleCoolantBlocks.push(m);
     }
     currentCoolantMode = coolant;
+    for (var i in multipleCoolantBlocks) {
+      if (typeof multipleCoolantBlocks[i] == "number") {
+        multipleCoolantBlocks[i] = mFormat.format(multipleCoolantBlocks[i]);
+      }
+    }
     return multipleCoolantBlocks; // return the single formatted coolant value
   }
   return undefined;
