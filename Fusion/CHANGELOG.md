@@ -2,12 +2,12 @@ Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
 ## 2021-10-14
-- Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (often required by inhertage and fusion core component).
-    | Date       | Descrition                                        | CRC                                      | 
-    |------------|---------------------------------------------------|------------------------------------------|
-    | 2021/10/12 | 	Added the ability to specify the coolant codes as a text string. | e9b6842f3e6234c1aaf343320b80f62d2d29ad08 |
+- Onefinity Fusion 360 Post Processor:
+  - Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (often required by inhertage and fusion core component).
+      | Date       | Descrition                                        | CRC                                      | 
+      |------------|---------------------------------------------------|------------------------------------------|
+      | 2021/10/12 | 	Added the ability to specify the coolant codes as a text string. | e9b6842f3e6234c1aaf343320b80f62d2d29ad08 |
 
-Retrofited new Autodesk changes to date 2021-10-12
 ## 2021-10-05
 - Onefinity Post Processor package
   - Added file [Onefinity Journeyman.machine](Onefinity%20Journeyman.machine)
