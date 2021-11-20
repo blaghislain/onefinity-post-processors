@@ -3,7 +3,7 @@ Onefinity Fusion 360 Post Processor Changelog
 
 ## 2021-10-20
 - Onefinity Fusion 360 Post Processor:
-  - Created release 'v2021.10.14.1_onefinity-community-post-processor_fusion360' in order to provide direct download of files.
+  - Created release 'v2021.10.14.1' in order to provide direct download of files.
 
 ## 2021-10-14
 - Onefinity Fusion 360 Post Processor:
