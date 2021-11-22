@@ -71,14 +71,16 @@ ___________________
 
 ## <a name="download">A. Download both 'Onefinity Post Processor file' and desired 'Onefinity Machine Configuration file' </a>
 
- - [ ] 1. **Download** the post processor file from the GitHub Repository and **Save** it on your system.
-    - [onefinity_fusion360.cps](./../../../releases/latest)
- - [ ] 2. **Download** one of the machine configuration files  from the GitHub Repository and **Save** it on your system:
-   - [Onefinity Woodworker.machine](./Onefinity%20Woodworker.machine) or
-   - [Onefinity Machinist.machine](./Onefinity%20Machinist.machine) or
-   - [Onefinity Journeyman.machine](./Onefinity%20Journeyman.machine)
+ - [ ] 1. **Navigate** to the [GitHub Release Folder](./../../../releases/latest) for this repository.   
+ (you may have to click on the arrow to show full files list)
 
-Note:  You can download all files in once usign this [link](../../../archive/refs/heads/main.zip):  
+ - [ ] 2. **Download** the processor file by selecting [onefinity_fusion360.cps](./../../../releases/latest) from the 'Assets list'
+ - [ ] 3. **Download** one of the machine configuration files by selecting it from the 'Assets list':
+   - [Onefinity Woodworker.machine](./../../../releases/latest) or
+   - [Onefinity Machinist.machine](./../../../releases/latest) or
+   - [Onefinity Journeyman.machine](./../../../releases/latest)
+
+Note:  You can download all files at once usign this [link](../../../archive/refs/heads/main.zip):  
 
 | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
