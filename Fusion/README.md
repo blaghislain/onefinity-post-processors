@@ -72,7 +72,7 @@ ___________________
 ## <a name="download">A. Download both 'Onefinity Post Processor file' and desired 'Onefinity Machine Configuration file' </a>
 
  - [ ] 1. **Download** the post processor file from the GitHub Repository and **Save** it on your system.
-    - [onefinity_fusion360.cps](./onefinity_fusion360.cps)
+    - [onefinity_fusion360.cps](../../../../release/)
  - [ ] 2. **Download** one of the machine configuration files  from the GitHub Repository and **Save** it on your system:
    - [Onefinity Woodworker.machine](./Onefinity%20Woodworker.machine) or
    - [Onefinity Machinist.machine](./Onefinity%20Machinist.machine) or
