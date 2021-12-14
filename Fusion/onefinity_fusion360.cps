@@ -4,13 +4,13 @@
 
   Onefinity post processor configuration.
 
-  $Revision: 43459 e9b6842f3e6234c1aaf343320b80f62d2d29ad08 $
-  $Date: 2021-10-12 12:45:30 $
+  $Revision: 43553 a19c569c9f7fe055fc222095112d3f1eebc74b63 $
+  $Date: 2021-12-02 17:56:05 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community Edition v2021.10.14.1";
+description = "Onefinity Community Edition v2021.12.14.2";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -164,6 +164,20 @@ properties = {
   spindlePause: {
     title: "Spindle Pause",
     description: "Insert a pause (M0 message) to let user control waiting for a spindle.",
+    type: "boolean",
+    value: false,
+    scope: "post"
+  },
+  OutputM6EveryTool: {
+    title: "Output M6 and M0 message for every tool",
+    description: "Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change.",
+    type: "boolean",
+    value: false,
+    scope: "post"
+  },
+  OutputM02InsteadOfM30: {
+    title: "Output M02 End Program instead of M30",
+    description: "Enable use of an M2 instead of M30 to end the program.",
     type: "boolean",
     value: false,
     scope: "post"
@@ -592,11 +606,15 @@ function onSection() {
       warning(localize("Tool number exceeds maximum value."));
     }
 
+  if (getProperty("OutputM02InsteadOfM30")) {
+    writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)), mFormat.format(0), formatComment("MSG, Change tool to T" + tool.number + "," + tool.description));
+  } else {
     if (!isFirstSection()) {
       writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)));
     } else {
       writeComment("T" + toolFormat.format(tool.number));
     }
+  }
 
     if (tool.comment) {
       writeComment(tool.comment);
@@ -1522,7 +1540,7 @@ function writeRetract() {
   var method = getProperty("safePositionMethod");
   if (method == "clearanceHeight") {
     if (!is3D()) {
-      error(localize("Retract option 'Clearance Height' is not supported for multi-axis machining."));
+      error(localize("Safe retract option 'Clearance Height' is only supported when all operations are along the setup Z-axis."));
     }
     return;
   }
@@ -1605,7 +1623,11 @@ function onClose() {
 
   onImpliedCommand(COMMAND_END);
   onImpliedCommand(COMMAND_STOP_SPINDLE);
-  writeBlock(mFormat.format(30)); // stop program, spindle stop, coolant off
+  if (getProperty("OutputM02InsteadOfM30")) {
+    writeBlock(mFormat.format(2)); // original program-end stop, spindle stop, coolant off
+  } else {
+    writeBlock(mFormat.format(30)); // stop program, spindle stop, coolant off
+  }  
   writeln("%");
 }
 
