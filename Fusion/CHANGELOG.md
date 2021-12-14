@@ -6,6 +6,10 @@ Onefinity Fusion 360 Post Processor Changelog
    - Added new custom property to force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change. (see also [forum](https://forum.onefinitycnc.com/t/like-many-new-forums-the-excitement-and/9209/14?u=blaghislain))
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
    - Created release 'v2021.12.14.1' in order to provide direct download of files.
+   - Retrofited new Autodesk/Buildbotics changes to date 2021-12-02 (required by inhertage and fusion core component).
+       | Date       | Descrition                                        | CRC                                      | 
+       |------------|---------------------------------------------------|------------------------------------------|
+       | 2021/12/02 | Improved error message when using Clearance Height as safe retract option for non 3-axis toolpaths.| bf758766be774afd173432ca3bc289a6f95e4e36 |
 
 ## 2021-10-20
 - Onefinity Fusion 360 Post Processor:

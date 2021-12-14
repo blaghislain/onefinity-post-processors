@@ -35,7 +35,7 @@ This is a customized version (see 'Features' section) of the generic post proces
     |----------|------------|------|---------------|
     | Spindle Delay | Insert a delay (gcode G4 Px) if time <> 0. Value (x) represent time in seconds to delay after setting spindle speed.| integer | 0| 
     | Spindle Pause|Insert a pause (gcode M0 message) to let user control waiting for a spindle.|boolean|false|
-    | OutputM6EveryTool | Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change.|boolean|false| 
+    | OutputM6EveryTool | Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change. (see also [forum](https://forum.onefinitycnc.com/t/like-many-new-forums-the-excitement-and/9209/14?u=blaghislain))|boolean|false| 
     | OutputM02InsteadOfM30 | Enable use of an M2 instead of M30 to end the program.|boolean|false|
 - Custom update to enable 'useCircularInterpolation'.
     | Property | Descrition | Type | new value |

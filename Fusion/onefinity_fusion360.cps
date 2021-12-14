@@ -4,13 +4,13 @@
 
   Onefinity post processor configuration.
 
-  $Revision: 43459 e9b6842f3e6234c1aaf343320b80f62d2d29ad08 $
-  $Date: 2021-10-12 12:45:30 $
+  $Revision: 43553 a19c569c9f7fe055fc222095112d3f1eebc74b63 $
+  $Date: 2021-12-02 17:56:05 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community Edition v2021.12.14.1";
+description = "Onefinity Community Edition v2021.12.14.2";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -177,7 +177,7 @@ properties = {
   },
   OutputM02InsteadOfM30: {
     title: "Output M02 End Program instead of M30",
-    description: "End program with M02 instead of M30.",
+    description: "Enable use of an M2 instead of M30 to end the program.",
     type: "boolean",
     value: false,
     scope: "post"
@@ -1540,7 +1540,7 @@ function writeRetract() {
   var method = getProperty("safePositionMethod");
   if (method == "clearanceHeight") {
     if (!is3D()) {
-      error(localize("Retract option 'Clearance Height' is not supported for multi-axis machining."));
+      error(localize("Safe retract option 'Clearance Height' is only supported when all operations are along the setup Z-axis."));
     }
     return;
   }
