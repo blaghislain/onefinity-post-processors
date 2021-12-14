@@ -30,11 +30,13 @@ This is a customized version (see 'Features' section) of the generic post proces
 
 ### Features:
 
--  Added two new customs properties for spindle to let user add a delay and/or a pause (M0 message) when spindle speed change.
+-  Added new customs properties for spindle to let user add a delay and/or a pause (M0 message) when spindle speed change.
     | Property | Descrition | Type | default value |
     |----------|------------|------|---------------|
     | Spindle Delay | Insert a delay (gcode G4 Px) if time <> 0. Value (x) represent time in seconds to delay after setting spindle speed.| integer | 0| 
-    | Spindle Pause|Insert a pause (gcode M0 message) to let user control waiting for a spindle|boolean|false|
+    | Spindle Pause|Insert a pause (gcode M0 message) to let user control waiting for a spindle.|boolean|false|
+    | OutputM6EveryTool | Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change.|boolean|false| 
+    | OutputM02InsteadOfM30 | Enable use of an M2 instead of M30 to end the program.|boolean|false|
 - Custom update to enable 'useCircularInterpolation'.
     | Property | Descrition | Type | new value |
     |----------|------------|------|-------------------|
@@ -44,6 +46,7 @@ This is a customized version (see 'Features' section) of the generic post proces
     - Less effort for stepper motor (torque, acceleration, etc.)
     - Smoother toolpath that require less time require to cut.  
     - Smaller file size. 
+
 - Retrofited all the Autodesk/Buildbotics changes (required by product inheritage and core component compatibility) from release 2020-11-11 to 2021-09-01.
 
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 

@@ -1,6 +1,12 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## 2021-12-14
+ - Onefinity Fusion 360 Post Processor:
+   - Added new custom property to force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change. (see also [forum](https://forum.onefinitycnc.com/t/like-many-new-forums-the-excitement-and/9209/14?u=blaghislain))
+   - Added new custom property to enable use of an M2 instead of M30 to end the program. 
+   - Created release 'v2021.12.14.1' in order to provide direct download of files.
+
 ## 2021-10-20
 - Onefinity Fusion 360 Post Processor:
   - Created release 'v2021.10.14.1' in order to provide direct download of files.
