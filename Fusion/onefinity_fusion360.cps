@@ -606,7 +606,7 @@ function onSection() {
       warning(localize("Tool number exceeds maximum value."));
     }
 
-  if (getProperty("OutputM02InsteadOfM30")) {
+  if (getProperty("OutputM6EveryTool")) {
     writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)), mFormat.format(0), formatComment("MSG, Change tool to T" + tool.number + "," + tool.description));
   } else {
     if (!isFirstSection()) {
