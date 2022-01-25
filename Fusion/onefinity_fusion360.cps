@@ -4,13 +4,13 @@
 
   Onefinity post processor configuration.
 
-  $Revision: 43553 a19c569c9f7fe055fc222095112d3f1eebc74b63 $
-  $Date: 2021-12-02 17:56:05 $
+  $Revision: 43591 e423e978b3d8d3b198237a2bea9a90752e27c7b1 $
+  $Date: 2022-01-14 16:19:21 $
   
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community Edition v2021.12.14.2";
+description = "Onefinity Community Edition v2022.01.14.1";
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
@@ -182,6 +182,15 @@ properties = {
     value: false,
     scope: "post"
   }
+};
+
+// wcs definiton
+wcsDefinitions = {
+  useZeroOffset: false,
+  wcs          : [
+    {name:"Standard", format:"G", range:[54, 59]},
+    {name:"Extended", format:"G59.", range:[1, 3]}
+  ]
 };
 
 var permittedCommentChars = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.,=_-";
@@ -684,25 +693,10 @@ function onSection() {
   if (insertToolCall) { // force work offset when changing tool
     currentWorkOffset = undefined;
   }
-  var workOffset = currentSection.workOffset;
-  if (workOffset == 0) {
-    warningOnce(localize("Work offset has not been specified. Using G54 as WCS."), WARNING_WORK_OFFSET);
-    workOffset = 1;
-  }
-  if (workOffset > 0) {
-    if (workOffset > 9) {
-      error(localize("Work offset out of range."));
-      return;
-    } else {
-      if (workOffset != currentWorkOffset) {
-        if (workOffset > 6)  {
-          writeBlock(gFormat.format(59 + ((workOffset - 6) / 10))); // G59.1->G59.3
-        } else {
-          writeBlock(gFormat.format(53 + workOffset)); // G54->G59
-        }
-        currentWorkOffset = workOffset;
-      }
-    }
+
+  if (currentSection.workOffset != currentWorkOffset) {
+    writeBlock(currentSection.wcs);
+    currentWorkOffset = currentSection.workOffset;
   }
 
   forceXYZ();
