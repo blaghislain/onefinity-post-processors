@@ -4,7 +4,7 @@ Onefinity Fusion 360 Post Processor Changelog
 ## 2022-01-25
  - Onefinity Fusion 360 Post Processor:
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
-   - Retrofited new Autodesk changes to date 2021-12-02 (ensure compliance and inhertage with fusion core component).
+   - Retrofited new Autodesk changes to date 2022-01-14 (ensure compliance and inhertage with fusion core component).
        | Date       | Descrition                                        | CRC                                      | 
        |------------|---------------------------------------------------|------------------------------------------|
        | 2022/01/14 | Updated the generic posts to use the new WCS definitions..| e423e978b3d8d3b198237a2bea9a90752e27c7b1 |
