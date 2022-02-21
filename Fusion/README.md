@@ -13,9 +13,15 @@ It contain these 'Community Customized Components' to be use in 'Autodesk Fusion
 - [OneFinity Custom Machine Configuration File (distinct definition file available for woodworker, machinist and journeyman)](#onefinity-custom-machine-library-definition)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
 
+__________________________
+## <a name="contributing">Contributing</a>
+
+If you want to contribute to this project and make it better, your help is very welcome.
+__________________________
+
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
-# <a name="overview">Components</a>
+# <a name="components">Components</a>
 Menu | [Overview](#overview) | **Components(** [**Onefinity Custom Post Processor**](#onefinity-custom-post-processor) | [**Onefinity Custom Machine Library Definition**](#onefinity-custom-machine-library-definition) ) | [Procedures](#procedures) |
 
 ## <a name="onefinity-custom-post-library-definition">Onefinity Custom Post Processor</a>

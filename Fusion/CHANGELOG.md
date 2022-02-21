@@ -1,13 +1,23 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## 2022-02-21
+ - Onefinity Fusion 360 Post Processor:
+   - Added new custom property to enable use of an M2 instead of M30 to end the program. 
+   - Retrofited new Autodesk changes to date 2022-01-26 (ensure compliance and inhertage with fusion core component).
+       | Date       | Title                                        | CRC                                      | 
+       |------------|---------------------------------------------------|------------------------------------------|
+       | 2022/01/14 | Updated the generic posts to use the new WCS definitions.| e423e978b3d8d3b198237a2bea9a90752e27c7b1 |
+       | 2022/01/26 | 	Force the coolant codes after a Stop or Optional Stop.| bad9507b472879bc92ad05d1deff7aed353e913d |
+   - Added comment and also reformat code to help comparing Autodesk original and community version. 
+
 ## 2021-12-14
  - Onefinity Fusion 360 Post Processor:
    - Added new custom property to force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change. (see also [forum](https://forum.onefinitycnc.com/t/like-many-new-forums-the-excitement-and/9209/14?u=blaghislain))
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
    - Created release 'v2021.12.14.1' in order to provide direct download of files.
-   - Retrofited new Autodesk/Buildbotics changes to date 2021-12-02 (required by inhertage and fusion core component).
-       | Date       | Descrition                                        | CRC                                      | 
+   - Retrofited new Autodesk changes to date 2021-12-02 (ensure compliance and inhertage with fusion core component).
+       | Date       | Title                                        | CRC                                      | 
        |------------|---------------------------------------------------|------------------------------------------|
        | 2021/12/02 | Improved error message when using Clearance Height as safe retract option for non 3-axis toolpaths.| bf758766be774afd173432ca3bc289a6f95e4e36 |
 
@@ -17,8 +27,8 @@ Onefinity Fusion 360 Post Processor Changelog
 
 ## 2021-10-14
 - Onefinity Fusion 360 Post Processor:
-  - Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (often required by inhertage and fusion core component).
-      | Date       | Descrition                                        | CRC                                      | 
+  - Retrofited new Autodesk changes to date 2021-09-01 (ensure compliance and inhertage with fusion core component).
+      | Date       | Title                                        | CRC                                      | 
       |------------|---------------------------------------------------|------------------------------------------|
       | 2021/10/12 | 	Added the ability to specify the coolant codes as a text string. | e9b6842f3e6234c1aaf343320b80f62d2d29ad08 |
 
@@ -29,8 +39,8 @@ Onefinity Fusion 360 Post Processor Changelog
   - Updated [README.md](README.md) to use relative link in order to work for main branch and also pull request branch.
 - Onefinity Fusion 360 Post Processor:
   - Fix post processor file to use 'gcode G4 Px' instead of 'gcode S4 Px' for spindle delay.
-- Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (required by inhertage and fusion core component).
-    | Date       | Descrition                                        | CRC                                      | 
+- Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (ensure compliance and inhertage with fusion core component).
+    | Date       | Title                                        | CRC                                      | 
     |------------|---------------------------------------------------|------------------------------------------|
     | 2021/09/01 | Added initial ABC positioning for simultaneous toolpath (#1109) | bf758766be774afd173432ca3bc289a6f95e4e36 |
     | 2021/06/28 | Changed ABC positioning movements to use the correct formats in generic posts. | 87e091300b673cf720a5d07cfae42c42846642d9 |
@@ -59,7 +69,7 @@ Onefinity Fusion 360 Post Processor Changelog
       - Smaller file size.  
       - Less time require to cut toolpath.  
       - And the most important, less effort for stepper motor (torque, acceleration, etc.)
-  - Retrofited all the Autodesk/Buildbotics changes to date 2021-03-18 (required by inhertage and fusion core component).
+  - Retrofited all the Autodesk changes to date 2021-03-18 (required by inhertage and fusion core component).
     | Date       | Descrition                                        | CRC                                      | 
     |------------|---------------------------------------------------|------------------------------------------|
     | 2021/03/18 | Updated rotaryTabeAxis method in all posts (#897) | a5a0aa6a6357c6456920970306b90da5de1f0892 |
