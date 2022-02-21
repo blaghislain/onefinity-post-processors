@@ -1,26 +1,26 @@
 /**
-  Copyright (C) 2012-2021 by Autodesk, Inc.
+  Copyright (C) 2012-2022 by Autodesk, Inc.
   All rights reserved.
 
   Onefinity post processor configuration.
 
-  $Revision: 43591 e423e978b3d8d3b198237a2bea9a90752e27c7b1 $
-  $Date: 2022-01-14 16:19:21 $
-  
+  $Revision: 43611 bad9507b472879bc92ad05d1deff7aed353e913d $
+  $Date: 2022-01-26 23:53:14 $
+
   FORKID {1467B300-821C-4276-88D6-2DAED8EC5C9E}
 */
 
-description = "Onefinity Community Edition v2022.01.14.1";
+description = "Onefinity Community Edition v2022.02.21.1"; // onefinity-community update
 vendor = "Kirbre Enterprises Inc.";
 vendorUrl = "https://www.onefinitycnc.com/";
 
 // >>>>> INCLUDED FROM ../common/buildbotics mill.cps
 
 if (!description) {
-  description = "Onefinity Controller";
+  description = "Onefinity Controller"; // onefinity-community update
 }
 
-legal = "Copyright (C) 2012-2021 by Autodesk, Inc.";
+legal = "Copyright (C) 2012-2022 by Autodesk, Inc.";
 certificationLevel = 2;
 minimumRevision = 45702;
 
@@ -40,147 +40,147 @@ maximumCircularRadius = spatial(1000, MM);
 minimumCircularSweep = toRad(0.01);
 maximumCircularSweep = toRad(180);
 allowHelicalMoves = true;
-allowedCircularPlanes = 0; // disable all circular interpolation (enable automatically if useCircularInterpolation is true)
+allowedCircularPlanes = 0; // disable all circular interpolation
 
 // user-defined properties
 properties = {
   writeMachine: {
-    title: "Write machine",
+    title      : "Write machine",
     description: "Output the machine settings in the header of the code.",
-    group: 0,
-    type: "boolean",
-    value: true,
-    scope: "post"
+    group      : 0,
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
   },
   writeTools: {
-    title: "Write tool list",
+    title      : "Write tool list",
     description: "Output a tool list in the header of the code.",
-    group: 0,
-    type: "boolean",
-    value: true,
-    scope: "post"
+    group      : 0,
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
   },
   preloadTool: {
-    title: "Preload tool",
+    title      : "Preload tool",
     description: "Preloads the next tool at a tool change (if any).",
-    type: "boolean",
-    value: false,
-    scope: "post"
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
   },
   showSequenceNumbers: {
-    title: "Use sequence numbers",
+    title      : "Use sequence numbers",
     description: "Use sequence numbers for each block of outputted code.",
-    group: 1,
-    type: "boolean",
-    value: true,
-    scope: "post"
+    group      : 1,
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
   },
   sequenceNumberStart: {
-    title: "Start sequence number",
+    title      : "Start sequence number",
     description: "The number at which to start the sequence numbers.",
-    group: 1,
-    type: "integer",
-    value: 10,
-    scope: "post"
+    group      : 1,
+    type       : "integer",
+    value      : 10,
+    scope      : "post"
   },
   sequenceNumberIncrement: {
-    title: "Sequence number increment",
+    title      : "Sequence number increment",
     description: "The amount by which the sequence number is incremented by in each block.",
-    group: 1,
-    type: "integer",
-    value: 5,
-    scope: "post"
+    group      : 1,
+    type       : "integer",
+    value      : 5,
+    scope      : "post"
   },
   optionalStop: {
-    title: "Optional stop",
+    title      : "Optional stop",
     description: "Outputs optional stop code during when necessary in the code.",
-    type: "boolean",
-    value: false,
-    scope: "post"
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
   },
   separateWordsWithSpace: {
-    title: "Separate words with space",
+    title      : "Separate words with space",
     description: "Adds spaces between words if 'yes' is selected.",
-    type: "boolean",
-    value: true,
-    scope: "post"
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
   },
   useM06: {
-    title: "Output M6",
+    title      : "Output M6",
     description: "Disable to disallow the output of M6 on tool changes.",
-    type: "boolean",
-    value: true,
-    scope: "post"
+    type       : "boolean",
+    value      : true,
+    scope      : "post"
   },
   safePositionMethod: {
-    title: "Safe Retracts",
+    title      : "Safe Retracts",
     description: "Select your desired retract option. 'Clearance Height' retracts to the operation clearance height.",
-    type: "enum",
-    values: [
-      {title: "G28", id: "G28"},
-      {title: "G53", id: "G53"},
-      {title: "Clearance Height", id: "clearanceHeight"}
+    type       : "enum",
+    values     : [
+      {title:"G28", id:"G28"},
+      {title:"G53", id:"G53"},
+      {title:"Clearance Height", id:"clearanceHeight"}
     ],
     value: "G53",
     scope: "post"
   },
   rotaryTableAxis: {
-    title: "Rotary table axis",
+    title      : "Rotary table axis",
     description: "Select rotary table axis. Check the table direction on the machine and use the (Reversed) selection if the table is moving in the opposite direction.",
-    type: "enum",
-    values: [
-      {title: "No rotary", id: "none"},
-      {title: "X", id: "x"},
-      {title: "Y", id: "y"},
-      {title: "Z", id: "z"},
-      {title: "X (Reversed)", id: "-x"},
-      {title: "Y (Reversed)", id: "-y"},
-      {title: "Z (Reversed)", id: "-z"}
+    type       : "enum",
+    values     : [
+      {title:"No rotary", id:"none"},
+      {title:"X", id:"x"},
+      {title:"Y", id:"y"},
+      {title:"Z", id:"z"},
+      {title:"X (Reversed)", id:"-x"},
+      {title:"Y (Reversed)", id:"-y"},
+      {title:"Z (Reversed)", id:"-z"}
     ],
     value: "none",
     scope: "post"
   },
   useCoolant: {
-    title: "Use coolant",
+    title      : "Use coolant",
     description: "Specifies that coolant should be output",
-    type: "boolean",
-    value: false,
-    scope: "post"
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
+  },
+  spindleDelay: { // onefinity-community update
+    title      : "Spindle Delay",
+    description: "Time in seconds to delay after setting spindle speed.",
+    type       : "integer",
+    value      : 0,
+    scope      : "post"
+  },
+  spindlePause: { // onefinity-community update
+    title      : "Spindle Pause",
+    description: "Insert a pause (M0 message) to let user control waiting for a spindle.",
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
+  },
+  OutputM6EveryTool: { // onefinity-community update
+    title      : "Output M6 and M0 message for every tool",
+    description: "Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change.",
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
+  },
+  OutputM02InsteadOfM30: { // onefinity-community update
+    title      : "Output M02 End Program instead of M30",
+    description: "Enable use of an M2 instead of M30 to end the program.",
+    type       : "boolean",
+    value      : false,
+    scope      : "post"
   },
   useCircularInterpolation: {
-    title: "Circular interpolation",
+    title      : "Circular interpolation",
     description: "Output arcs as linear moves when set to No.",
-    type: "boolean",
-    value: true,
-    scope: "post"
-  },
-  spindleDelay: {
-    title: "Spindle Delay",
-    description: "Time in seconds to delay after setting spindle speed.",
-    type: "integer",
-    value: 0,
-    scope: "post"
-  },
-  spindlePause: {
-    title: "Spindle Pause",
-    description: "Insert a pause (M0 message) to let user control waiting for a spindle.",
-    type: "boolean",
-    value: false,
-    scope: "post"
-  },
-  OutputM6EveryTool: {
-    title: "Output M6 and M0 message for every tool",
-    description: "Force output of both M6 and M0 message (MSG, Change bit to T...) for every tool change.",
-    type: "boolean",
-    value: false,
-    scope: "post"
-  },
-  OutputM02InsteadOfM30: {
-    title: "Output M02 End Program instead of M30",
-    description: "Enable use of an M2 instead of M30 to end the program.",
-    type: "boolean",
-    value: false,
-    scope: "post"
+    type       : "boolean",
+    value      : true, // onefinity-community update
+    scope      : "post"
   }
 };
 
@@ -203,22 +203,22 @@ var singleLineCoolant = false; // specifies to output multiple coolant codes in 
 // {id: COOLANT_THROUGH_TOOL, on: [8, 88], off: [9, 89]}
 // {id: COOLANT_THROUGH_TOOL, on: "M88 P3 (myComment)", off: "M89"}
 var coolants = [
-  {id: COOLANT_FLOOD, on: 8},
-  {id: COOLANT_MIST, on: 7},
-  {id: COOLANT_THROUGH_TOOL},
-  {id: COOLANT_AIR},
-  {id: COOLANT_AIR_THROUGH_TOOL},
-  {id: COOLANT_SUCTION},
-  {id: COOLANT_FLOOD_MIST},
-  {id: COOLANT_FLOOD_THROUGH_TOOL},
-  {id: COOLANT_OFF, off: 9}
+  {id:COOLANT_FLOOD, on:8},
+  {id:COOLANT_MIST, on:7},
+  {id:COOLANT_THROUGH_TOOL},
+  {id:COOLANT_AIR},
+  {id:COOLANT_AIR_THROUGH_TOOL},
+  {id:COOLANT_SUCTION},
+  {id:COOLANT_FLOOD_MIST},
+  {id:COOLANT_FLOOD_THROUGH_TOOL},
+  {id:COOLANT_OFF, off:9}
 ];
 
 var gFormat = createFormat({prefix:"G", decimals:1});
 var mFormat = createFormat({prefix:"M", decimals:1});
 var hFormat = createFormat({prefix:"H", decimals:1});
 var dFormat = createFormat({prefix:"D", decimals:1});
-var pFormat = createFormat({prefix:"P", decimals:0});
+var pFormat = createFormat({prefix:"P", decimals:0}); // onefinity-community update
 
 var xyzFormat = createFormat({decimals:(unit == MM ? 3 : 4)});
 var abcFormat = createFormat({decimals:3, forceDecimal:true, scale:DEG});
@@ -237,8 +237,8 @@ var cOutput = createVariable({prefix:"C"}, abcFormat);
 var feedOutput = createVariable({prefix:"F"}, feedFormat);
 var sOutput = createVariable({prefix:"S", force:true}, rpmFormat);
 var dOutput = createVariable({}, dFormat);
-var gOutput = createVariable({}, gFormat);
-var pOutput = createVariable({}, pFormat);
+var gOutput = createVariable({}, gFormat); // onefinity-community update
+var pOutput = createVariable({}, pFormat); // onefinity-community update
 
 // circular output
 var iOutput = createReferenceVariable({prefix:"I", force:true}, xyzFormat);
@@ -257,6 +257,7 @@ var WARNING_WORK_OFFSET = 0;
 
 // collected state
 var sequenceNumber;
+var forceSpindleSpeed = false;
 var currentWorkOffset;
 var retracted = false; // specifies that the tool has been retracted to the safe plane
 
@@ -300,7 +301,7 @@ function onOpen() {
     return;
   }
   rotary -= 3;
-  
+
   // Define Master (carrier) axis
   var masterAxis = Math.abs(rotary) - 1;
   if (masterAxis >= 0) {
@@ -313,7 +314,7 @@ function onOpen() {
       aAxis = createAxis({coordinate:0, table:true, axis:rotaryVector, cyclic:true, preference:0});
     }
     machineConfiguration = new MachineConfiguration(aAxis);
-  
+
     setMachineConfiguration(machineConfiguration);
     // Single rotary does not use TCP mode
     optimizeMachineAngles2(1); // 0 = TCP Mode ON, 1 = TCP Mode OFF
@@ -328,7 +329,7 @@ function onOpen() {
   if (!machineConfiguration.isMachineCoordinate(2)) {
     cOutput.disable();
   }
-  
+
   if (!getProperty("separateWordsWithSpace")) {
     setWordSeparator("");
   }
@@ -509,7 +510,7 @@ function getWorkPlaneMachineABC(workPlane) {
   } else {
     abc = machineConfiguration.getPreferredABC(abc);
   }
-  
+
   try {
     abc = machineConfiguration.remapABC(abc);
     currentMachineABC = abc;
@@ -521,12 +522,12 @@ function getWorkPlaneMachineABC(workPlane) {
       + conditional(machineConfiguration.isMachineCoordinate(2), " C" + abcFormat.format(abc.z))
     );
   }
-  
+
   var direction = machineConfiguration.getDirection(abc);
   if (!isSameDirection(direction, W.forward)) {
     error(localize("Orientation not supported."));
   }
-  
+
   if (!machineConfiguration.isABCSupported(abc)) {
     error(
       localize("Work plane is not supported") + ":"
@@ -544,7 +545,7 @@ function getWorkPlaneMachineABC(workPlane) {
     var R = machineConfiguration.getRemainingOrientation(abc, W);
     setRotation(R);
   }
-  
+
   return abc;
 }
 
@@ -571,7 +572,7 @@ function onSection() {
   var insertToolCall = isFirstSection() ||
     currentSection.getForceToolChange && currentSection.getForceToolChange() ||
     (tool.number != getPreviousSection().getTool().number);
-  
+
   var newWorkOffset = isFirstSection() ||
     (getPreviousSection().workOffset != currentSection.workOffset); // work offset changes
   var newWorkPlane = isFirstSection() ||
@@ -582,7 +583,7 @@ function onSection() {
     (!getPreviousSection().isMultiAxis() && currentSection.isMultiAxis() ||
       getPreviousSection().isMultiAxis() && !currentSection.isMultiAxis()); // force newWorkPlane between indexing and simultaneous operations
   if (insertToolCall || newWorkOffset || newWorkPlane) {
-    
+
     // stop spindle before retract during tool change
     if (insertToolCall && !isFirstSection()) {
       onCommand(COMMAND_STOP_SPINDLE);
@@ -594,7 +595,7 @@ function onSection() {
   }
 
   writeln("");
-  
+
   if (hasParameter("operation-comment")) {
     var comment = getParameter("operation-comment");
     if (comment) {
@@ -604,9 +605,9 @@ function onSection() {
 
   if (insertToolCall) {
     forceWorkPlane();
-    
+
     setCoolant(COOLANT_OFF);
-  
+
     if (!isFirstSection() && getProperty("optionalStop")) {
       onCommand(COMMAND_STOP); // optional stop not yet supported
     }
@@ -615,15 +616,16 @@ function onSection() {
       warning(localize("Tool number exceeds maximum value."));
     }
 
-  if (getProperty("OutputM6EveryTool")) {
-    writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)), mFormat.format(0), formatComment("MSG, Change tool to T" + tool.number + "," + tool.description));
-  } else {
+    // onefinity-community update
+    if (getProperty("OutputM6EveryTool")) {
+      writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)), mFormat.format(0), formatComment("MSG, Change tool to T" + tool.number + "," + tool.description));
+    } else {
     if (!isFirstSection()) {
       writeBlock("T" + toolFormat.format(tool.number), conditional(getProperty("useM06"), mFormat.format(6)));
     } else {
       writeComment("T" + toolFormat.format(tool.number));
     }
-  }
+    }
 
     if (tool.comment) {
       writeComment(tool.comment);
@@ -660,13 +662,13 @@ function onSection() {
       }
     }
   }
-  
-  // modified code here to make sure that this is not a probe operation before setting spindle speed
-  if ((insertToolCall ||
-      isFirstSection() ||
-      (rpmFormat.areDifferent(spindleSpeed, sOutput.getCurrent())) ||
-      (tool.clockwise != getPreviousSection().getTool().clockwise)) &&
-      !isProbeOperation()) {
+
+  var spindleChanged = tool.type != TOOL_PROBE &&
+    (insertToolCall || forceSpindleSpeed || isFirstSection() ||
+    (rpmFormat.areDifferent(spindleSpeed, sOutput.getCurrent())) ||
+    (tool.clockwise != getPreviousSection().getTool().clockwise));
+  if (spindleChanged) {
+    forceSpindleSpeed = false;
     if (spindleSpeed < 1) {
       error(localize("Spindle speed out of range."));
       return;
@@ -674,13 +676,18 @@ function onSection() {
     if (spindleSpeed > 99999) {
       warning(localize("Spindle speed exceeds maximum value."));
     }
+    
+    // onefinity-community update
     if (getProperty("spindleDelay") < 0) {
       error(localize("Spindle delay may not be < 0"));
       return;
     }
+    
     writeBlock(
       sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4)
     );
+    
+    // onefinity-community update
     if (getProperty("spindleDelay") > 0) {
       writeBlock(gOutput.format(4), pFormat.format(getProperty("spindleDelay")));
     }
@@ -712,7 +719,7 @@ function onSection() {
       }
     } else {
       abc = getWorkPlaneMachineABC(currentSection.workPlane);
-    setWorkPlane(abc);
+      setWorkPlane(abc);
     }
   } else { // pure 3D
     var remaining = currentSection.workPlane;
@@ -783,9 +790,12 @@ function onDwell(seconds) {
 
 function onSpindleSpeed(spindleSpeed) {
   writeBlock(sOutput.format(spindleSpeed));
+  
+  // onefinity-community update
   if (getProperty("spindleDelay") > 0) {
     writeBlock("G4 " + pFormat.format(getProperty("spindleDelay")));
   }
+  
   if (getProperty("spindlePause")) {
     //put in pause after spindle speed change
     writeBlock("M0 (MSG, Wait for Spindle)");
@@ -821,7 +831,7 @@ function onCyclePoint(x, y, z) {
         offset = cycle.probeClearance + tool.diameter / 2;
       }
     }
-    
+
     // return to initial Z which is clearance plane and set absolute mode
 
     var F = cycle.feedrate;
@@ -924,7 +934,7 @@ function onCyclePoint(x, y, z) {
     case "probing-xy-outer-corner":
       writeComment(cycleType);
       var value2 = (cycle.approach2 == "positive") ? 1 : -1;
-        
+
       writeComment("probing x");
       writeBlock(gMotionModal.format(0), "Z" + xyzFormat.format(cycle.retract));
       writeBlock(gMotionModal.format(0), "Y" + xyzFormat.format(y + value2 * (2 * offset)));
@@ -935,7 +945,7 @@ function onCyclePoint(x, y, z) {
       writeBlock(gAbsIncModal.format(90));
       writeBlock(gMotionModal.format(0), "Z" + xyzFormat.format(cycle.retract));
       writeBlock(gMotionModal.format(0), "Y" + xyzFormat.format(y));
-        
+
       writeComment("probing y");
       writeBlock(gMotionModal.format(0), "X" + xyzFormat.format(x + value * (2 * offset)));
       writeBlock(gMotionModal.format(1), "Z" + xyzFormat.format(-tool.diameter / 2));
@@ -1112,9 +1122,9 @@ function getMultiaxisFeed(_x, _y, _z, _a, _b, _c, feed) {
     error(localize("Feedrate is less than or equal to 0."));
     return f;
   }
-  
+
   var length = getMoveLength(_x, _y, _z, _a, _b, _c);
-  
+
   if (useInverseTimeFeed) { // inverse time
     f.frn = getInverseTime(length.tool, feed);
     f.fmode = 93;
@@ -1134,7 +1144,7 @@ function getOptimizedMode() {
   // return (currentSection.getOptimizedTCPMode() != 0); // TAG:doesn't return correct value
   return true; // always return false for non-TCP based heads
 }
-  
+
 /** Calculate the DPM feedrate number. */
 function getFeedDPM(_moveLength, _feed) {
   if ((_feed == 0) || (_moveLength.tool < 0.0001) || (toDeg(_moveLength.abcLength) < 0.0005)) {
@@ -1245,7 +1255,7 @@ function getRotaryRadius(axis, toolPosition, abc) {
   }
   return radius;
 }
-  
+
 /** Calculate the linear distance based on the rotation of a rotary axis. */
 function getRadialDistance(radius, startABC, endABC) {
   // calculate length of radial move
@@ -1256,7 +1266,7 @@ function getRadialDistance(radius, startABC, endABC) {
   var radialLength = (2 * Math.PI * radius) * (delta / (2 * Math.PI));
   return radialLength;
 }
-  
+
 /** Calculate tooltip, XYZ, and rotary move lengths. */
 function getMoveLength(_x, _y, _z, _a, _b, _c) {
   // get starting and ending positions
@@ -1272,7 +1282,7 @@ function getMoveLength(_x, _y, _z, _a, _b, _c) {
     startABC = getCurrentDirection();
   }
   var endABC = new Vector(_a, _b, _c);
-    
+
   if (!getOptimizedMode()) { // calculate XYZ from tool tip
     startTool = getCurrentPosition();
     endTool = new Vector(_x, _y, _z);
@@ -1319,14 +1329,14 @@ function getMoveLength(_x, _y, _z, _a, _b, _c) {
 
   // calculate radii
   moveLength.radius = getRotaryRadii(startTool, endTool, startABC, endABC);
-  
+
   // calculate the radial portion of the tool tip movement
   var radialLength = Math.sqrt(
     Math.pow(getRadialDistance(moveLength.radius.x, startABC.x, endABC.x), 2.0) +
     Math.pow(getRadialDistance(moveLength.radius.y, startABC.y, endABC.y), 2.0) +
     Math.pow(getRadialDistance(moveLength.radius.z, startABC.z, endABC.z), 2.0)
   );
-  
+
   // calculate the tool tip move length
   // tool tip distance is the move distance based on a combination of linear and rotary axes movement
   moveLength.tool = moveLength.xyzLength + radialLength;
@@ -1345,7 +1355,7 @@ function getMoveLength(_x, _y, _z, _a, _b, _c) {
 
 function onCircular(clockwise, cx, cy, cz, x, y, z, feed) {
   // one of X/Y and I/J are required and likewise
-  
+
   if (pendingRadiusCompensation >= 0) {
     error(localize("Radius compensation cannot be activated/deactivated for a circular move."));
     return;
@@ -1390,6 +1400,7 @@ function onCircular(clockwise, cx, cy, cz, x, y, z, feed) {
 
 var currentCoolantMode = COOLANT_OFF;
 var coolantOff = undefined;
+var forceCoolant = false;
 
 function setCoolant(coolant) {
   var coolantCodes = getCoolantCodes(coolant);
@@ -1417,10 +1428,10 @@ function getCoolantCodes(coolant) {
   if (tool.type == TOOL_PROBE) { // avoid coolant output for probing
     coolant = COOLANT_OFF;
   }
-  if (coolant == currentCoolantMode) {
+  if (coolant == currentCoolantMode && (!forceCoolant || coolant == COOLANT_OFF)) {
     return undefined; // coolant is already active
   }
-  if ((coolant != COOLANT_OFF) && (currentCoolantMode != COOLANT_OFF) && (coolantOff != undefined)) {
+  if ((coolant != COOLANT_OFF) && (currentCoolantMode != COOLANT_OFF) && (coolantOff != undefined) && !forceCoolant) {
     if (Array.isArray(coolantOff)) {
       for (var i in coolantOff) {
         multipleCoolantBlocks.push(coolantOff[i]);
@@ -1429,6 +1440,7 @@ function getCoolantCodes(coolant) {
       multipleCoolantBlocks.push(coolantOff);
     }
   }
+  forceCoolant = false;
 
   var m;
   var coolantCodes = {};
@@ -1478,20 +1490,27 @@ function getCoolantCodes(coolant) {
 }
 
 var mapCommand = {
-  COMMAND_STOP:0,
-  COMMAND_OPTIONAL_STOP:1,
-  COMMAND_END:2,
-  COMMAND_SPINDLE_CLOCKWISE:3,
-  COMMAND_SPINDLE_COUNTERCLOCKWISE:4,
-  COMMAND_STOP_SPINDLE:5,
-  COMMAND_ORIENTATE_SPINDLE:19,
-  COMMAND_LOAD_TOOL:6
+  COMMAND_STOP                    : 0,
+  COMMAND_OPTIONAL_STOP           : 1,
+  COMMAND_END                     : 2,
+  COMMAND_SPINDLE_CLOCKWISE       : 3,
+  COMMAND_SPINDLE_COUNTERCLOCKWISE: 4,
+  COMMAND_STOP_SPINDLE            : 5,
+  COMMAND_ORIENTATE_SPINDLE       : 19,
+  COMMAND_LOAD_TOOL               : 6
 };
 
 function onCommand(command) {
   switch (command) {
   case COMMAND_STOP:
     writeBlock(mFormat.format(0));
+    forceSpindleSpeed = true;
+    forceCoolant = true;
+    return;
+  case COMMAND_OPTIONAL_STOP:
+    writeBlock(mFormat.format(1));
+    forceSpindleSpeed = true;
+    forceCoolant = true;
     return;
   case COMMAND_START_SPINDLE:
     onCommand(tool.clockwise ? COMMAND_SPINDLE_CLOCKWISE : COMMAND_SPINDLE_COUNTERCLOCKWISE);
@@ -1617,6 +1636,8 @@ function onClose() {
 
   onImpliedCommand(COMMAND_END);
   onImpliedCommand(COMMAND_STOP_SPINDLE);
+  
+  // onefinity-community update
   if (getProperty("OutputM02InsteadOfM30")) {
     writeBlock(mFormat.format(2)); // original program-end stop, spindle stop, coolant off
   } else {
@@ -1631,5 +1652,7 @@ function setProperty(property, value) {
 // <<<<< INCLUDED FROM ../common/buildbotics mill.cps
 
 properties.useM06.value = false; // output M06 with tool changes
+
+// onefinity-community update
 properties.useCircularInterpolation.value = true; // output circular moves as linear moves when set to false
 

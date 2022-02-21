@@ -1,13 +1,15 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
-## 2022-01-25
+## 2022-02-21
  - Onefinity Fusion 360 Post Processor:
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
-   - Retrofited new Autodesk changes to date 2022-01-14 (ensure compliance and inhertage with fusion core component).
-       | Date       | Descrition                                        | CRC                                      | 
+   - Retrofited new Autodesk changes to date 2022-01-26 (ensure compliance and inhertage with fusion core component).
+       | Date       | Title                                        | CRC                                      | 
        |------------|---------------------------------------------------|------------------------------------------|
-       | 2022/01/14 | Updated the generic posts to use the new WCS definitions..| e423e978b3d8d3b198237a2bea9a90752e27c7b1 |
+       | 2022/01/14 | Updated the generic posts to use the new WCS definitions.| e423e978b3d8d3b198237a2bea9a90752e27c7b1 |
+       | 2022/01/26 | 	Force the coolant codes after a Stop or Optional Stop.| bad9507b472879bc92ad05d1deff7aed353e913d |
+   - Added comment and also reformat code to help comparing Autodesk original and community version. 
 
 ## 2021-12-14
  - Onefinity Fusion 360 Post Processor:
@@ -15,7 +17,7 @@ Onefinity Fusion 360 Post Processor Changelog
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
    - Created release 'v2021.12.14.1' in order to provide direct download of files.
    - Retrofited new Autodesk changes to date 2021-12-02 (ensure compliance and inhertage with fusion core component).
-       | Date       | Descrition                                        | CRC                                      | 
+       | Date       | Title                                        | CRC                                      | 
        |------------|---------------------------------------------------|------------------------------------------|
        | 2021/12/02 | Improved error message when using Clearance Height as safe retract option for non 3-axis toolpaths.| bf758766be774afd173432ca3bc289a6f95e4e36 |
 
@@ -26,7 +28,7 @@ Onefinity Fusion 360 Post Processor Changelog
 ## 2021-10-14
 - Onefinity Fusion 360 Post Processor:
   - Retrofited new Autodesk changes to date 2021-09-01 (ensure compliance and inhertage with fusion core component).
-      | Date       | Descrition                                        | CRC                                      | 
+      | Date       | Title                                        | CRC                                      | 
       |------------|---------------------------------------------------|------------------------------------------|
       | 2021/10/12 | 	Added the ability to specify the coolant codes as a text string. | e9b6842f3e6234c1aaf343320b80f62d2d29ad08 |
 
@@ -38,7 +40,7 @@ Onefinity Fusion 360 Post Processor Changelog
 - Onefinity Fusion 360 Post Processor:
   - Fix post processor file to use 'gcode G4 Px' instead of 'gcode S4 Px' for spindle delay.
 - Retrofited new Autodesk/Buildbotics changes to date 2021-09-01 (ensure compliance and inhertage with fusion core component).
-    | Date       | Descrition                                        | CRC                                      | 
+    | Date       | Title                                        | CRC                                      | 
     |------------|---------------------------------------------------|------------------------------------------|
     | 2021/09/01 | Added initial ABC positioning for simultaneous toolpath (#1109) | bf758766be774afd173432ca3bc289a6f95e4e36 |
     | 2021/06/28 | Changed ABC positioning movements to use the correct formats in generic posts. | 87e091300b673cf720a5d07cfae42c42846642d9 |
