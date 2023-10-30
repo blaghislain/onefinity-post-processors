@@ -1,4 +1,4 @@
-# <a name="Section">Onefinity Fusion 360 Post Processor & Machine</a>
+# <a name="Section">Onefinity Fusion 360 Post Processor & Machine (x-35 and x-50 non-elite machines only)</a>
 
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
@@ -10,7 +10,7 @@ It contain these 'Community Customized Components' to be use in 'Autodesk Fusion
 ** click on the desired component to get to the proper section
 - [Onefinity Custom Post Processor](#onefinity-custom-post-library-definition).
   - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) that can be read by the CNC machine's controller.
-- [OneFinity Custom Machine Configuration File (distinct definition file available for woodworker, machinist and journeyman)](#onefinity-custom-machine-library-definition)
+- [OneFinity Custom Machine Configuration File (distinct definition file available for machinist, woodworker, journeyman and foreman)] (#onefinity-custom-machine-library-definition)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
 
 __________________________
@@ -53,7 +53,7 @@ This is a customized version (see 'Features' section) of the generic post proces
     - Smoother toolpath that require less time require to cut.  
     - Smaller file size. 
 
-- Retrofited all the Autodesk/Buildbotics changes (required by product inheritage and core component compatibility) from release 2020-11-11 to 2021-09-01.
+- Retrofited Autodesk/Buildbotics changes (required by product inheritage and core component compatibility).  See changelog for delail.
 
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) | 
 ___________________
@@ -61,7 +61,7 @@ ___________________
 
 ** As explained in the overview, the machine configuration is an optional component.  
  
- Three differents starter configuration files are provided ('**Onefinity Woodworker**', '**Onefinity Machinist**' and '**Onefinity Journeyman**')
+ Differents starter configuration files are provided depending on the machine size ('**Onefinity Machinist**' , '**Onefinity Woodworker**', '**Onefinity Journeyman**' and '**Onefinity Foreman**') and Z-Slider model  ('**Z-16**' and '**Z-20**')
 
 **Machine Configuration** files are use to define available machines and resources. Each configuration file:  
   - can help automate the settings in your Fusion 360 Job Setup.
@@ -85,9 +85,18 @@ ___________________
 
  - [ ] 2. **Download** the processor file by selecting [onefinity_fusion360.cps](./../../../releases/latest) from the 'Assets list'
  - [ ] 3. **Download** one of the machine configuration files by selecting it from the 'Assets list':
-   - [Onefinity Woodworker.machine](./../../../releases/latest) or
-   - [Onefinity Machinist.machine](./../../../releases/latest) or
-   - [Onefinity Journeyman.machine](./../../../releases/latest)
+  
+     Note: Make sure you select the specific machine file for your machine size ('Machinist' , 'Woodworker', 'Journeyman' and 'Foreman') or your Z-Slider model ('Z-16' or 'Z-20') 
+
+    | Machine with Z-16 Slider       | Machine with Z-20 Slider              | | 
+    |------------|-|------------------------------------------|
+    |  [Onefinity Machinist with Z-16.machine](./../../../releases/latest) |  [Onefinity Machinist with Z-20.machine](./../../../releases/latest) |
+    |  [Onefinity Woodworker with Z-16.machine](./../../../releases/latest) |  [Onefinity Woodworker with Z-20.machine](./../../../releases/latest) |
+    |  [Onefinity Journeyman with Z-16.machine](./../../../releases/latest) |  [Onefinity Journeyman with Z-20.machine](./../../../releases/latest) |
+    |  [Onefinity Foreman with Z-16.machine](./../../../releases/latest) |  [Onefinity Foreman with Z-20.machine](./../../../releases/latest) | 
+
+   
+
 
 Note:  You can download all files at once usign this [link](../../../archive/refs/heads/main.zip):  
 
@@ -139,9 +148,20 @@ __________________________
 
 ![post_select](./images/installing_machine_04.png)
 - [ ] 7. Navigate to the folder where you extrated the zip file in step A.2) 
-- [ ] 8a. To install the 'Woodworker' definition, Select the file 'onefinity_woodworker.machine'
-- [ ] 8b. To install the 'Machinist' definition, Select the file 'onefinity_machinist.machine'
-- [ ] 8c. To install the 'Journeyman' definition, Select the file 'onefinity_journeyman.machine'
+- [ ] 8. To install the 'machine file' definition, Select one of: 
+  - [ ] 8a. 'Woodworker': 
+    - [Onefinity Woodworker with Z-16.machine](Onefinity%20Woodworkert%20with%20Z-16.machine) 
+    - [Onefinity Woodworker with Z-20.machine](Onefinity%20Woodworkert%20with%20Z-20.machine)
+  - [ ] 8b. 'Machinist': 
+    - [Onefinity Machinist with Z-16.machine](Onefinity%20Machinist%20with%20Z-16.machine)
+    - [Onefinity Machinist with Z-20.machine](Onefinity%20Machinist%20with%20Z-20.machine)
+  - [ ] 8c. 'Journeyman': 
+    - [Onefinity Journeyman with Z-16.machine](Onefinity%20Journeyman%20with%20Z-16.machine) 
+    - [Onefinity Journeyman with Z-20.machine](Onefinity%20Journeyman%20with%20Z-20.machine)
+  - [ ] 8d. 'Foreman': 
+    - [Onefinity Foreman with Z-16.machine](Onefinity%Foreman%20with%20Z-16.machine)
+    - [Onefinity Foreman with Z-20.machine](Onefinity%Foreman%20with%20Z-20.machine)
+
 - [ ] 9. Click the 'Open' button
 
 **You should now configure the machine you just installed to ajust the 'Post Output Folder' to your desired system folder (default to c:\\@GCODE)**
