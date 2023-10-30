@@ -10,7 +10,7 @@ It contain these 'Community Customized Components' to be use in 'Autodesk Fusion
 ** click on the desired component to get to the proper section
 - [Onefinity Custom Post Processor](#onefinity-custom-post-library-definition).
   - The post processor file is a mandatory component.  It's a language definition file used to converts toolpaths created in a CAM software into language (NC programs) that can be read by the CNC machine's controller.
-- [OneFinity Custom Machine Configuration File (distinct definition file available for machinist, woodworker, journeyman and foreman)] (#onefinity-custom-machine-library-definition)
+- [OneFinity Custom Machine Configuration File](#onefinity-custom-machine-library-definition) (distinct definition file available for machinist, woodworker, journeyman and foreman)
   - The machine configuration file is an optional component.  It let you define your specific machine and ressources settings in one place.  It help automate the settings in your Fusion 360 Job Setup for a particular process.
 
 __________________________
