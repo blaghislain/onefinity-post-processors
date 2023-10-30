@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<machine xmlns="http://www.hsmworks.com/xml/2009/machine">
+
+  <vendor>Kirbre Enterprises Inc</vendor>
+
+  <model>Machinist with Z-16 Slider</model>
+
+  <description>Onefinity Community Edition v2022.02.21.1</description>
+
+  <control>Onefinity</control>
+
+  <machining additive="no" inspection="no" jet="yes" milling="yes" turning="yes"/>
+
+  <dimensions depth="410mm" height="133mm" weight="0kg" width="410mm"/>
+
+  <capacities depth="410mm" height="0mm" weight="0kg" width="410mm"/>
+
+  <png128></png128>
+
+  <mtk></mtk>
+
+  <controllerConfigurations></controllerConfigurations>
+
+  <fusion>
+    <model></model>
+  </fusion>
+
+  <custom>
+    <data></data>
+    <name></name>
+    <softwareVersion></softwareVersion>
+    <network ip="" port="" protocol=""/>
+    <serial></serial>
+  </custom>
+
+  <machine_connector capability="no" connectionMethod="Ethernet (TCP/IP)">
+    <application machineConnectorIdent="" machineConnectorIp="127.0.0.1" machineConnectorPath="" machineConnectorPort="50000"/>
+    <serial_connection baudRate="115200" bits="7" dataBufferSerial="100" flow="XON/XOFF" parity="Even" port="1" stopBits="1"/>
+    <ethernet_connection MDCPort="5051" dataBufferEthernet="10100"/>
+  </machine_connector>
+
+  <coolant options=""/>
+
+  <multiAxis adjust="no" angle="10deg" bpwRatio="1" cone="3deg" feedrateMethod="fpm" feedrateType="combination" linearizationTolerance="0.040000000000000001mm" maximumFeedrate="9999.9899999999998" method="off" outputTolerance="0.5" reconfigure="no" safePlungeFeedrate="250mm/min" safeRetractDistance="25mm" safeRetractFeedrate="500mm/min" stockExpansion="2.5mm 2.5mm 2.5mm" tolerance="0.040000000000000001mm" virtualToolTip="no"/>
+
+  <tooling maximumToolDiameter="0mm" maximumToolLength="0mm" maximumToolWeight="0kg" numberOfTools="10000" toolChanger="no" toolPreload="no"/>
+
+  <machiningTime ratio="0.21000000000000008" toolChangeTime="15s"/>
+
+  <capabilities maximumBlockProcessingSpeed="0" maximumFeedrate="0mm/min" workOffsets="100"/>
+
+  <simulation retractOnIndexing="yes" shortestAngularRotation="yes" tableAttachPoint="0mm 0mm 0mm" toolAttachPoint="0mm 0mm 0mm" wcs="0mm 0mm 0mm">
+    <machineAssembly></machineAssembly>
+  </simulation>
+
+  <post>
+    <postProcessor>user://onefinity_fusion360.cps</postProcessor>
+    <postProperties>
+      <Parameters/>
+    </postProperties>
+    <setupSheet></setupSheet>
+    <setupSheetProperties/>
+  </post>
+
+  <axis actuator="linear" coordinate="X" homePosition="0mm" id="X" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <axis actuator="linear" coordinate="Y" homePosition="0mm" id="Y" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <axis actuator="linear" coordinate="Z" homePosition="0mm" id="Z" link="table" maximumFeed="0mm/min" name="" offset="0mm 0mm 0mm" rapidFeed="0mm/min" resolution="0mm"/>
+
+  <spindle axis="0 0 1" maximumSpeed="24000rpm" minimumSpeed="0rpm">
+    <description></description>
+  </spindle>
+
+</machine>
