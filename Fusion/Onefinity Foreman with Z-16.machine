@@ -3,7 +3,7 @@
 
   <vendor>Kirbre Enterprises Inc</vendor>
 
-  <model>Machinist with Z-16 Slider</model>
+  <model>Foreman with Z-16 Slider</model>
 
   <description>Onefinity Community Edition v2023.10.30.1</description>
 
@@ -11,9 +11,9 @@
 
   <machining additive="no" inspection="no" jet="yes" milling="yes" turning="yes"/>
 
-  <dimensions depth="410mm" height="133mm" weight="0kg" width="410mm"/>
+  <dimensions depth="1220mm" height="133mm" weight="0kg" width="1220mm"/>
 
-  <capacities depth="410mm" height="0mm" weight="0kg" width="410mm"/>
+  <capacities depth="1220mm" height="0mm" weight="0kg" width="1220mm"/>
 
   <png128></png128>
 
