@@ -458,16 +458,7 @@ function onSpindleSpeed(spindleSpeed) {
     return;
   }
   writeBlock(sOutput.format(spindleSpeed));
-  
-  // onefinity-community update
-  if (getProperty("spindleDelay") > 0) {
-    writeBlock("G4 " + pFormat.format(getProperty("spindleDelay")));
-  }
-  
-  if (getProperty("spindlePause")) {
-    //put in pause after spindle speed change
-    writeBlock("M0 (MSG, Wait for Spindle)");
-  }
+
 }
 
 function onCycle() {
@@ -698,6 +689,16 @@ function onCommand(command) {
   case COMMAND_START_SPINDLE:
     forceSpindleSpeed = false;
     writeBlock(sOutput.format(spindleSpeed), mFormat.format(tool.clockwise ? 3 : 4));
+    // onefinity-community update
+    if (getProperty("spindleDelay") > 0) {
+      writeBlock("G4 " + pFormat.format(getProperty("spindleDelay")));
+    }
+    
+    if (getProperty("spindlePause")) {
+      //put in pause after spindle speed change
+      writeBlock("M0 (MSG, Wait for Spindle)");
+    }
+
     return;
   case COMMAND_LOAD_TOOL:
     //   if (!isFirstSection()) {
