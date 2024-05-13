@@ -1,6 +1,18 @@
 Onefinity Fusion 360 Post Processor Changelog
 =============================================
 
+## 2024-05-13
+
+- Onefinity Fusion 360 Post Processor:
+  - Created release 'v2024.05.15.1' in order to provide direct download of files.
+
+ - Onefinity Fusion 360 Post Processor:
+   - Added new custom property to enable use of an M2 instead of M30 to end the program. 
+   - Retrofited new Autodesk changes to date 2024-03-15 (ensure compliance and inhertage with fusion core component).
+       | Date       | Title                                        | CRC                                      | 
+       |------------|---------------------------------------------------|------------------------------------------|
+       | 2024/03/15 | See Autodesk Comment | [e423e978b3d8d3b198237a2bea9a90752e27c7b1](https://cam.autodesk.com/hsmposts?p=onefinity) |
+
 ## 2022-02-21
  - Onefinity Fusion 360 Post Processor:
    - Added new custom property to enable use of an M2 instead of M30 to end the program. 
