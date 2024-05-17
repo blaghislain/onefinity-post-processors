@@ -175,7 +175,7 @@ properties = {
       {title:"L3-Wait for input to be High", id:"L3"},
       {title:"L4-Wait for input to be Low", id:"L4"}
     ],
-    value: "L4",
+    value: "L3",
     scope: "post"
   }, 
   SRC5_Qvalue: {
