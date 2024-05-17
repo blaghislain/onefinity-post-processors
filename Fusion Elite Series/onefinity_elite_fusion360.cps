@@ -486,7 +486,7 @@ function onSection() {
     // Community Edition Change - Spindle Stop Check
     if (getProperty("SSC1_SpindleStoppedCheckEnable")) {
       writeBlock("MSG " + getProperty("SSC2_MsgIn") );      
-      writeBlock("MSG M66 P" + getProperty("SSC3_Pvalue") + " " + getProperty("SSC4_Lvalue") + " Q" + getProperty("SSC5_Qvalue") + " S2" );      
+      writeBlock("M66 P" + getProperty("SSC3_Pvalue") + " " + getProperty("SSC4_Lvalue") + " Q" + getProperty("SSC5_Qvalue") + " S2" );      
       writeBlock("MSG " + getProperty("SSC6_MsgOut") );      
       writeBlock("M00");
       writeBlock("MSG"); 
@@ -783,7 +783,7 @@ function onCommand(command) {
     // Community Edition Change - Spindle Start Check
     if (getProperty("SRC1_SpindleRunningCheckEnable")) {
       writeBlock("MSG " + getProperty("SRC2_MsgIn") );      
-      writeBlock("MSG M66 P" + getProperty("SRC3_Pvalue") + " " + getProperty("SRC4_Lvalue") + " Q" + getProperty("SRC5_Qvalue") + " S2" );      
+      writeBlock("M66 P" + getProperty("SRC3_Pvalue") + " " + getProperty("SRC4_Lvalue") + " Q" + getProperty("SRC5_Qvalue") + " S2" );      
       writeBlock("MSG " + getProperty("SRC6_MsgOut") );      
       writeBlock("M00");
       writeBlock("MSG"); 
