@@ -3,7 +3,7 @@
 Menu | [Overview](#overview) | [Components](#components) | [Procedures](#procedures) |
 __________________________
 ## <a name="Important">Important</a>
-Having migrated to a Onefinity Elite machine I now have limited capabilities to fully support and test the community post processor for PRO and Original Series.  
+Having migrated to a Onefinity Elite machine I now have limited capabilities to fully support and test the community post processor for PRO and Original Series.  Anyone wanting to take over is welcome.  
 __________________________
 ## <a name="overview">Overview</a>
 The 'Fusion' folder is part of 'onefinity-community-post-processors' GitHub Package.  
